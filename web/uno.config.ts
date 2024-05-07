@@ -13,10 +13,12 @@ import {
 export default defineConfig({
   shortcuts: {
     "flex-center": "flex justify-center items-center",
+    "size-full": "w-full h-full",
   },
   theme: {
+    
     colors: {
-      // ...
+      "main-bg": "#070707",
     },
   },
   presets: [
