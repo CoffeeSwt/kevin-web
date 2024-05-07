@@ -3,7 +3,7 @@
     <div fixed top-0 left-0 z-999 w-full bg-main-bg :class="{ 'h-full': menuOpen }">
       <div w-full h-10 lg:flex gap-6 items-center justify-end px-4 box-border hidden>
         <template v-for="item in menuList">
-          <div color-white text-sm>{{ item.name }}</div>
+          <div color-white text-sm cursor-pointer hover:bg-light-black w-20 h-10 flex-center transition-all>{{ item.name }}</div>
         </template>
       </div>
       <div @click="changeMenu" flex flex-col px-4 lg:hidden>

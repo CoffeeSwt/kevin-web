@@ -20,6 +20,7 @@ export default defineConfig({
       "main-bg": "#070707",
       black: "#111111",
       white: "#ebeaed",
+      "light-black":'#222'
     },
   },
   presets: [
