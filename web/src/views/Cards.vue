@@ -1,7 +1,36 @@
 <template>
-    <div>粉丝卡片</div>
+    
 </template>
+<script>
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from 'swiper/vue';
 
-<script setup lang="ts">
+// Import Swiper styles
+import 'swiper/css';
 
+export default {
+    components: {
+        Swiper,
+        SwiperSlide,
+    },
+    setup() {
+        const onSwiper = (swiper) => {
+            console.log(swiper);
+        };
+        const onSlideChange = () => {
+            console.log('slide change');
+        };
+        return {
+            onSwiper,
+            onSlideChange,
+        };
+    },
+};
 </script>
+
+<style scoped>
+.swiper-slide{
+    width: 100%;
+    height: 200px;
+}
+</style>
