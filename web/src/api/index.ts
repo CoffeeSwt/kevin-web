@@ -1,8 +1,8 @@
-import service from '@/utils/request'
+import service from "../utils/request";
 
 export const test = () => {
-    return service({
-        url: '/test',
-        method: 'get',
-    })
-}
+  return service({
+    url: "/test",
+    method: "get",
+  });
+};
