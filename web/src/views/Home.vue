@@ -12,15 +12,15 @@
     <section w-full h-screen snap-start flex flex-col items-center px-4 box-border overflow-y-auto>
       <div h-14 flex-shrink-0></div>
       <div self-start mb-4 text-2xl flex-shrink-0>正在更新</div>
-      <section overflow-hidden relative w-full aspect-video rounded flex-shrink-0>
+      <section overflow-hidden relative w-full aspect-video rounded-lg flex-shrink-0>
         <img size-full :src="picList.updataing?.url" alt="">
       </section>
       <div block-divid></div>
       <div self-start my-4 text-2xl flex-shrink-0>往期作品</div>
-      <section flex-shrink-0 w-full flex box-border overflow-x-auto overflow-y-hidden snap-x snap-mandatory>
+      <section flex-shrink-0 w-full flex box-border overflow-x-auto overflow-y-hidden snap-x snap-proximity>
         <template v-for="i in picList.thePast">
-          <div snap-start class="w-3/4" aspect-video flex-grow-0 flex-shrink-0 rounded pr-2 box-border overflow-hidden>
-            <img size-full rounded :src="i.url" alt="">
+          <div snap-start class="w-3/4" aspect-video flex-grow-0 flex-shrink-0 pr-2 box-border overflow-hidden>
+            <img size-full rounded-lg :src="i.url" alt="">
           </div>
         </template>
       </section>
@@ -50,7 +50,7 @@
           }}</div>
       </template>
     </div>
-    <div @click="changeMenu" flex flex-col px-4 lg:hidden>
+    <div @click="changeMenu" flex flex-col px-4 pt-4 lg:hidden>
       <div v-show="!menuOpen" self-start color-white w-10 h-10 class="i-humbleicons-bars" />
       <div v-show="menuOpen" self-start color-white w-10 h-10 class="i-humbleicons-times" />
     </div>
