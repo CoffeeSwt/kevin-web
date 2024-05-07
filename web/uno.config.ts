@@ -16,9 +16,10 @@ export default defineConfig({
     "size-full": "w-full h-full",
   },
   theme: {
-    
     colors: {
       "main-bg": "#070707",
+      black: "#111111",
+      white: "#ebeaed",
     },
   },
   presets: [
@@ -28,7 +29,7 @@ export default defineConfig({
     presetTypography(),
     presetWebFonts({
       fonts: {
-        sans: "Roboto",
+        sans: ["PingFangSC-Regular", "Helvetica"],
         mono: ["Fira Code", "Fira Mono:400,700"],
       },
     }),
