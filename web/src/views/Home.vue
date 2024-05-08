@@ -1,35 +1,55 @@
 <template>
   <div ref='scrollWrapperRef' bg-main-bg color-white w-full antialiased tracking-widest snap-y h-screen overflow-auto
-    snap-mandatory>
-    <section w-full h-screen snap-start>
+    snap-mandatory scroll-smooth>
+    <section ref="section-hero" w-full h-screen snap-start>
       <div overflow-hidden relative size-full>
         <img absolute w-full bottom-0 scale-200 left--40 sm:scale-160 sm:left--30 md:scale-130 lg:scale-120 xl:scale-80
-          xl:left-0 lg:bottom--10 src="/imgs/25601440.jpg" alt="">
+          xl:left-0 lg:bottom--20 src="/imgs/25601440.jpg" alt="">
         <img absolute w-full top-20 scale-180 left-30 sm:scale-160 sm:left-25 md:scale-130 md:left-20 lg:scale-110
           lg:left-5 xl:scale-100 xl:left-0 xl:top--15 src="/imgs/DL改版-FILM.png" alt="">
       </div>
     </section>
-    <section w-full h-screen snap-start flex flex-col items-center px-4 box-border overflow-y-auto>
-      <div h-14 flex-shrink-0></div>
-      <div self-start mb-4 text-2xl flex-shrink-0>正在更新</div>
-      <section overflow-hidden relative w-full aspect-video rounded-lg flex-shrink-0>
-        <img size-full :src="picList.updataing?.url" alt="">
+    <section w-full h-screen snap-start px-4 box-border overflow-y-auto scroll-smooth>
+      <section ref="section-arts" w-full flex flex-col items-center>
+        <div h-18 flex-shrink-0></div>
+        <div self-start mb-4 text-2xl flex-shrink-0>正在更新</div>
+        <section @click=heroClickHandler(picList.updataing!) overflow-hidden relative w-full aspect-video rounded-lg
+          flex-shrink-0>
+          <img size-full :src="picList.updataing?.url" alt="">
+        </section>
       </section>
       <div block-divid></div>
-      <div self-start my-4 text-2xl flex-shrink-0>往期作品</div>
-      <section flex-shrink-0 w-full flex box-border overflow-x-auto overflow-y-hidden snap-x snap-proximity>
-        <template v-for="i in picList.thePast">
-          <div snap-start class="w-3/4" aspect-video flex-grow-0 flex-shrink-0 pr-2 box-border overflow-hidden>
-            <img size-full rounded-lg :src="i.url" alt="">
-          </div>
-        </template>
+      <section w-full flex flex-col items-center>
+        <div self-start my-4 text-2xl flex-shrink-0>往期作品</div>
+        <section flex-shrink-0 w-full flex box-border overflow-x-auto overflow-y-hidden snap-x snap-proximity>
+          <template v-for="i in picList.thePast">
+            <div @click=heroClickHandler(i) snap-start class="w-3/4" aspect-video flex-grow-0 flex-shrink-0 pr-2
+              box-border overflow-hidden>
+              <img size-full rounded-lg :src="i.url" alt="">
+            </div>
+          </template>
+        </section>
       </section>
       <div block-divid></div>
-      <section w-full h-100 flex-shrink-0>
-        123123
+      <section w-full flex flex-col items-center>
+        <div self-start my-4 text-2xl flex-shrink-0>往期作品</div>
+        <section flex-shrink-0 w-full flex box-border overflow-x-auto overflow-y-hidden snap-x snap-proximity>
+          <template v-for="i in picList.thePast">
+            <div snap-start class="w-3/4" aspect-video flex-grow-0 flex-shrink-0 pr-2 box-border overflow-hidden>
+              <img size-full rounded-lg :src="i.url" alt="">
+            </div>
+          </template>
+        </section>
       </section>
-      <section w-full h-100 flex-shrink-0>
-        1231231
+      <section w-full flex flex-col items-center>
+        <div self-start my-4 text-2xl flex-shrink-0>往期作品</div>
+        <section flex-shrink-0 w-full flex box-border overflow-x-auto overflow-y-hidden snap-x snap-proximity>
+          <template v-for="i in picList.thePast">
+            <div snap-start class="w-3/4" aspect-video flex-grow-0 flex-shrink-0 pr-2 box-border overflow-hidden>
+              <img size-full rounded-lg :src="i.url" alt="">
+            </div>
+          </template>
+        </section>
       </section>
     </section>
   </div>
@@ -45,19 +65,18 @@
   <div fixed top-0 left-0 z-999 w-full bg-main-bg :class="{ 'h-full': menuOpen }">
     <div w-full h-10 lg:flex gap-6 items-center justify-end px-4 box-border hidden>
       <template v-for="item in menuList">
-        <div @click="navigateTo(item.path)" color-white text-sm cursor-pointer hover:bg-light-black w-20 h-10
-          flex-center transition-all>{{ item.name
-          }}</div>
+        <div @click="menuClickHandle(item)" color-white text-sm cursor-pointer hover:bg-light-black w-20 h-10
+          flex-center transition-all>{{ item.name }}</div>
       </template>
     </div>
-    <div @click="changeMenu" flex flex-col px-4 pt-4 lg:hidden>
+    <div @click="changeMenu" flex flex-col px-4 py-4 lg:hidden>
       <div v-show="!menuOpen" self-start color-white w-10 h-10 class="i-humbleicons-bars" />
       <div v-show="menuOpen" self-start color-white w-10 h-10 class="i-humbleicons-times" />
     </div>
     <Transition name="pack_up">
-      <ul v-show="menuOpen" px-2 list-none flex flex-col gap-4 my-0 lg:hidden pt-4>
+      <ul v-show="menuOpen" px-2 list-none flex flex-col gap-4 my-0 lg:hidden>
         <template v-for="item in menuList">
-          <li @click="navigateTo(item.path)" block rounded-lg px-4 py-2 text-4xl font-medium text-white flex
+          <li @click="menuClickHandle(item, true)" block rounded-lg px-4 py-2 text-4xl font-medium text-white flex
             justify-start>
             <span inline-block>{{ item.name }}</span>
           </li>
@@ -80,40 +99,76 @@ const navigateTo = (src: string) => {
   router.push(src)
 }
 
-const menuList = ref([
+const heroClickHandler = (item: artsItem) => {
+  const link = item.link
+  if (!link) return
+  window.open(link)
+}
+const menuClickHandle = (item: menuItem, delay: boolean = false) => {
+  if (delay)
+    changeMenu()
+  if (item.refName)
+    scrollIntoView(item.refName)
+}
+const ins = getCurrentInstance()
+const pageRefs = computed(() => {
+  return ins?.refs
+})
+const scrollIntoView = (refName: string) => {
+  const el = pageRefs.value![refName] as HTMLElement
+  if (!el) return
+  el.scrollIntoView()
+}
+type menuItem = {
+  refName?: string
+  name: string
+  path: string
+}
+const menuList = ref<Array<menuItem>>([
   {
     name: 'UP主简介',
-    path: '/intro'
+    path: '/intro',
+    refName: 'section-hero'
   },
   {
     name: '凯文作品',
-    path: '/arts'
+    path: '/arts',
+    refName: 'section-arts'
   },
   {
     name: '一起玩游戏',
-    path: '/playtogether'
+    path: '/playtogether',
+    refName: '12312'
   },
   {
     name: '粉丝卡片',
-    path: '/cards'
+    path: '/cards',
+    refName: '3123'
   },
   {
     name: '联系我们',
-    path: '/contact'
+    path: '/contact',
+    refName: '12312'
   },
 ])
-const artsLink = ref([
+type artsItem = {
+  index: number,
+  name: string,
+  url: string,
+  link?: string
+}
+const artsLink = ref<Array<artsItem>>([
   {
     index: 0,
     name: '',
     url: '/imgs/DayzNamalsk.jpg',
-    link: ''
+    link: 'https://www.bilibili.com/video/BV13i4y1Q7Aa/?share_source=copy_web&vd_source=9ddc1049990662aba9ddb9dc23fdd638'
   },
   {
     index: 1,
     name: '',
     url: '/imgs/Imnotscum.jpg',
-    link: ''
+    link: 'https://www.bilibili.com/video/BV1DY41147Dd/?share_source=copy_web&vd_source=9ddc1049990662aba9ddb9dc23fdd638'
   },
   {
     index: 2,
@@ -176,10 +231,6 @@ const picList = computed(() => {
   transition: all .5s;
 }
 
-.pack_up-enter-active {
-  /* transition-delay: .3s; */
-}
-
 .pack_up-enter-from,
 .pack_up-leave-to {
   opacity: 0;
@@ -189,6 +240,7 @@ const picList = computed(() => {
   scroll-snap-type: y mandatory;
 }
 
+section::-webkit-scrollbar,
 div::-webkit-scrollbar {
   display: none;
 }
