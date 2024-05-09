@@ -28,9 +28,8 @@
     <div v-if="upDetailShow" fixed rounded-lg drop-shadow-lg bg-gray-dark opacity-95
       class="w-80% h-60% top-1/2 left-1/2 translate-x--1/2 translate-y--1/2" z-9999 flex flex-col items-center>
       <div flex-grow></div>
-      <div @click="upDetailShowChange" i-gg-close-o w-10 h-10></div>
+      <div @click="upDetailShowChange" i-gg-close-o w-10 h-10 cursor-pointer></div>
     </div>
-
   </Transition>
 
   <!-- wrapper part -->
@@ -39,16 +38,14 @@
     <!-- Hero Section scroll -->
     <section ref="section-hero" w-full h-screen snap-start :class="{ blur: upDetailShow }" transition-all>
       <div overflow-hidden relative size-full>
-        <img absolute class="lg:w-2/6 w-6/9" bottom-0 right--4 src="/imgs/25601440.jpg" alt="">
-        <div absolute class="lg:w-1/3 w-6/9" top-18 left-4>
+        <img absolute class="lg:w-4/10 w-7/9" bottom-0 right--4 lg:right-16 src="/imgs/25601440.png" alt="">
+        <div absolute class="lg:w-1/3 w-6/9" top-18 left-4 lg:left-16>
           <img w-full src="/imgs/DL改版-FILM.png" alt="">
           <div absolute w-20 h-10 bottom-0 text-base translate-y-full-0.2 rounded-3xl text-blue-apple
-            @click="upDetailShowChange" cursor-pointer>了解凯文</div>
+            @click="upDetailShowChange" cursor-pointer lg:text-xl lg:w-24>了解凯文</div>
         </div>
       </div>
     </section>
-
-
 
     <!-- Phone Section scroll -->
     <section w-full h-screen snap-start px-4 box-border overflow-y-auto scroll-smooth lg:hidden>
@@ -83,6 +80,36 @@
           <template v-for="gameCardInfo in gameCards">
             <GameCard class="w-full" :gameCardInfo="gameCardInfo" mb-8></GameCard>
           </template>
+        </div>
+      </section>
+      <section ref="section-cards" w-full>
+        <div h-18></div>
+        <div mb-4 text-3xl>特别鸣谢</div>
+        <div h-8></div>
+        <div w-full>
+          <template v-for="i in sponsors">
+            <div class="w-3/4" mx-auto flex flex-col items-center mb-16 bg-black-l-1 p-11 px-8 rounded-2xl box-border
+              aspect-43>
+              <div flex flex-col items-center>
+                <div w-20 h-20 bg-white rounded-full flex-center overflow-hidden>
+                  <img :src="i.avator" alt="">
+                </div>
+                <div mt-6 mb-4 text-2xl>{{ i.name }}</div>
+              </div>
+              <div w-full text-sm text-center whitespace-pre-wrap tracking-widest line-height-relaxed>
+                {{ i.text }}
+              </div>
+            </div>
+          </template>
+        </div>
+      </section>
+
+      <section ref="section-contact" w-full min-h-screen>
+        <div h-18></div>
+        <div mb-4 text-3xl>联系我们</div>
+        <div h-8></div>
+        <div w-full>
+          11111联系我们11111联系我们11111联系我们11111联系我们11111联系我们11111联系我们
         </div>
       </section>
     </section>
@@ -136,25 +163,45 @@
       </section>
 
       <!-- sponsor section -->
-      <section w-full h-screen>
-        1111
+      <section ref="section-cards-pc" w-full>
+        <div h-10></div>
+        <div mb-8 text-3xl>特别鸣谢</div>
+        <div w-full flex gap-12>
+          <template v-for="i in sponsors">
+            <div w-50 flex flex-col items-center aspect-43 bg-black-l-1 p-8 rounded-2xl pt-12 hover:translate-y--5
+              transition-all>
+              <div flex flex-col items-center>
+                <div w-20 h-20 bg-white rounded-full flex-center overflow-hidden>
+                  <img :src="i.avator" alt="">
+                </div>
+                <div mt-6 mb-5 text-2xl>{{ i.name }}</div>
+              </div>
+              <div text-sm text-center whitespace-pre-wrap tracking-widest line-height-relaxed flex-grow-1>
+                {{ i.text }}
+              </div>
+            </div>
+          </template>
+        </div>
       </section>
-      <section w-full h-screen>
-        1111
+
+      <section ref="section-contact-pc" w-full min-h-screen-50>
+        <div h-10></div>
+        <div mb-4 text-3xl>联系我们</div>
+        <div h-8></div>
+        <div w-full>
+          11111联系我们11111联系我们11111联系我们11111联系我们11111联系我们11111联系我们
+        </div>
       </section>
-      <section w-full h-screen>
-        1111
-      </section>
+
     </section>
   </div>
-
-
 </template>
 
 <script setup lang="ts">
 import artsLinkjson from '@/assets/examplejson/artsLink.json'
 import menuListjson from '@/assets/examplejson/menuList.json'
 import gameCardsjson from '@/assets/examplejson/gameCards.json'
+import sponsorsjson from '@/assets/examplejson/sponsors.json'
 import { GameCardInfo } from '@/types/common'
 import { chunkArray } from '@/utils/math'
 import GameCard from '@/components/GameCard.vue'
@@ -162,6 +209,7 @@ const upDetailShow = ref(false)
 const upDetailShowChange = () => {
   upDetailShow.value = !upDetailShow.value
 }
+const sponsors = ref(sponsorsjson)
 const scrollWrapperRef = ref<null | HTMLDivElement>(null)
 let resizeObserver;
 const innerWidth = ref(0);

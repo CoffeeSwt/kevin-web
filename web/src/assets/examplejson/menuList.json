@@ -12,6 +12,16 @@
     "refName": "section-playtogether",
     "pcRefName": "section-playtogether-pc"
   },
-  { "name": "特别鸣谢", "path": "/cards", "refName": "3123" },
-  { "name": "联系我们", "path": "/contact", "refName": "12312" }
+  {
+    "name": "特别鸣谢",
+    "path": "/cards",
+    "refName": "section-cards",
+    "pcRefName": "section-cards-pc"
+  },
+  {
+    "name": "联系我们",
+    "path": "/contact",
+    "refName": "section-contact",
+    "pcRefName": "section-contact-pc"
+  }
 ]

@@ -22,13 +22,14 @@ export default defineConfig({
     ],
     ["filter-blur", { filter: "blur(10px)" }],
     ["backdrop-blur", { "backdrop-blur": "blur(10px)" }],
+    [/^min-h-screen-(\d+)$/, (match) => ({ "min-height": `${match[1]}vh` })],
   ],
   shortcuts: {
     "flex-center": "flex justify-center items-center",
     "size-full": "w-full h-full",
     "block-divid": "h-4 flex-shrink-0",
     "full-absolute": "absolute size-full top-0 left-0",
-    "blur":"filter-blur backdrop-blur"
+    blur: "filter-blur backdrop-blur",
   },
   theme: {
     colors: {
@@ -41,7 +42,7 @@ export default defineConfig({
       "white-light": "#ebeaed",
       "blue-bar": "#534afd",
       "blue-apple": "#0071e3",
-      "gray-dark":"#333"
+      "gray-dark": "#333",
     },
   },
   presets: [
