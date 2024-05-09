@@ -1,0 +1,17 @@
+[
+  { "name": "UP主简介", "path": "/intro", "refName": "section-hero" },
+  {
+    "name": "凯文作品",
+    "path": "/arts",
+    "refName": "section-arts",
+    "pcRefName": "section-arts-pc"
+  },
+  {
+    "name": "一起玩游戏",
+    "path": "/playtogether",
+    "refName": "section-playtogether",
+    "pcRefName": "section-playtogether-pc"
+  },
+  { "name": "特别鸣谢", "path": "/cards", "refName": "3123" },
+  { "name": "联系我们", "path": "/contact", "refName": "12312" }
+]

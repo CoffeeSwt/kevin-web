@@ -18,7 +18,13 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@": ["src/"]
+    }
   },
   "include": [
     "src/**/*.ts",
@@ -26,5 +32,6 @@
     "src/**/*.vue",
     "./auto-imports.d.ts"
   ],
+
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,0 +1,23 @@
+[
+  {
+    "name": "七日杀服务器",
+    "picSrc": "/imgs/7DTD.png",
+    "picSrcPhone": "/imgs/7DTD1.png",
+    "info": "",
+    "routerLink": "/gameDetail?name=七日杀"
+  },
+  {
+    "name": "Dayz服务器",
+    "picSrc": "/imgs/DAYZ.png",
+    "picSrcPhone": "/imgs/DAYZ1.png",
+    "info": "",
+    "routerLink": "/gameDetail?name=Dayz"
+  },
+  {
+    "name": "僵尸毁灭工程服务器",
+    "picSrc": "/imgs/JSHMGC.png",
+    "picSrcPhone": "/imgs/JSHMGC1.png",
+    "info": "",
+    "routerLink": "/gameDetail?name=僵尸毁灭工程"
+  }
+]

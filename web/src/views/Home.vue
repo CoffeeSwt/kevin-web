@@ -1,102 +1,183 @@
 <template>
-  <div ref='scrollWrapperRef' bg-main-bg color-white w-full antialiased tracking-widest snap-y h-screen overflow-auto
-    snap-mandatory scroll-smooth>
-    <section ref="section-hero" w-full h-screen snap-start>
-      <div overflow-hidden relative size-full>
-        <img absolute w-full bottom-0 scale-200 left--40 sm:scale-160 sm:left--30 md:scale-130 lg:scale-120 xl:scale-80
-          xl:left-0 lg:bottom--20 src="/imgs/25601440.jpg" alt="">
-        <img absolute w-full top-20 scale-180 left-30 sm:scale-160 sm:left-25 md:scale-130 md:left-20 lg:scale-110
-          lg:left-5 xl:scale-100 xl:left-0 xl:top--15 src="/imgs/DL改版-FILM.png" alt="">
-      </div>
-    </section>
-    <section w-full h-screen snap-start px-4 box-border overflow-y-auto scroll-smooth>
-      <section ref="section-arts" w-full flex flex-col items-center>
-        <div h-18 flex-shrink-0></div>
-        <div self-start mb-4 text-2xl flex-shrink-0>正在更新</div>
-        <section @click=heroClickHandler(picList.updataing!) overflow-hidden relative w-full aspect-video rounded-lg
-          flex-shrink-0>
-          <img size-full :src="picList.updataing?.url" alt="">
-        </section>
-      </section>
-      <div block-divid></div>
-      <section w-full flex flex-col items-center>
-        <div self-start my-4 text-2xl flex-shrink-0>往期作品</div>
-        <section flex-shrink-0 w-full flex box-border overflow-x-auto overflow-y-hidden snap-x snap-proximity>
-          <template v-for="i in picList.thePast">
-            <div @click=heroClickHandler(i) snap-start class="w-3/4" aspect-video flex-grow-0 flex-shrink-0 pr-2
-              box-border overflow-hidden>
-              <img size-full rounded-lg :src="i.url" alt="">
-            </div>
-          </template>
-        </section>
-      </section>
-      <div block-divid></div>
-      <section w-full flex flex-col items-center>
-        <div self-start my-4 text-2xl flex-shrink-0>往期作品</div>
-        <section flex-shrink-0 w-full flex box-border overflow-x-auto overflow-y-hidden snap-x snap-proximity>
-          <template v-for="i in picList.thePast">
-            <div snap-start class="w-3/4" aspect-video flex-grow-0 flex-shrink-0 pr-2 box-border overflow-hidden>
-              <img size-full rounded-lg :src="i.url" alt="">
-            </div>
-          </template>
-        </section>
-      </section>
-      <section w-full flex flex-col items-center>
-        <div self-start my-4 text-2xl flex-shrink-0>往期作品</div>
-        <section flex-shrink-0 w-full flex box-border overflow-x-auto overflow-y-hidden snap-x snap-proximity>
-          <template v-for="i in picList.thePast">
-            <div snap-start class="w-3/4" aspect-video flex-grow-0 flex-shrink-0 pr-2 box-border overflow-hidden>
-              <img size-full rounded-lg :src="i.url" alt="">
-            </div>
-          </template>
-        </section>
-      </section>
-    </section>
-  </div>
-  <!-- <div>
-        <iframe w-300 aspect-video :src="videoSrc" scrolling="no" border="0" frameborder="no" framespacing="0"
-          allowfullscreen="true" mute="true">
-        </iframe>
-      </div> -->
-  <!-- Home
-      <button @click="navigateTo('/demo')" class="inline-block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:relative">
-        Edit
-      </button> -->
-  <div fixed top-0 left-0 z-999 w-full bg-main-bg :class="{ 'h-full': menuOpen }">
+  <!-- Head Fixd Part -->
+  <div fixed top-0 left-0 z-999 w-full bg-main-bg color-white :class="{ 'h-full': menuOpen, blur: upDetailShow }"
+    transition-all>
     <div w-full h-10 lg:flex gap-6 items-center justify-end px-4 box-border hidden>
       <template v-for="item in menuList">
-        <div @click="menuClickHandle(item)" color-white text-sm cursor-pointer hover:bg-light-black w-20 h-10
-          flex-center transition-all>{{ item.name }}</div>
+        <div @click="menuClickHandle(item)" text-sm cursor-pointer hover:bg-light-black w-20 h-10 flex-center
+          transition-all>{{ item.name }}</div>
       </template>
     </div>
     <div @click="changeMenu" flex flex-col px-4 py-4 lg:hidden>
-      <div v-show="!menuOpen" self-start color-white w-10 h-10 class="i-humbleicons-bars" />
-      <div v-show="menuOpen" self-start color-white w-10 h-10 class="i-humbleicons-times" />
+      <div v-show="!menuOpen" self-start w-10 h-10 class="i-humbleicons-bars" />
+      <div v-show="menuOpen" self-start w-10 h-10 class="i-humbleicons-times" />
     </div>
     <Transition name="pack_up">
       <ul v-show="menuOpen" px-2 list-none flex flex-col gap-4 my-0 lg:hidden>
         <template v-for="item in menuList">
-          <li @click="menuClickHandle(item, true)" block rounded-lg px-4 py-2 text-4xl font-medium text-white flex
-            justify-start>
+          <li @click="menuClickHandle(item, true)" block rounded-lg px-4 py-2 text-4xl font-medium flex justify-start>
             <span inline-block>{{ item.name }}</span>
           </li>
         </template>
       </ul>
     </Transition>
   </div>
+
+  <!-- UP Detail Part-->
+  <Transition name="leftfrom">
+    <div v-if="upDetailShow" fixed rounded-lg drop-shadow-lg bg-gray-dark opacity-95
+      class="w-80% h-60% top-1/2 left-1/2 translate-x--1/2 translate-y--1/2" z-9999 flex flex-col items-center>
+      <div flex-grow></div>
+      <div @click="upDetailShowChange" i-gg-close-o w-10 h-10></div>
+    </div>
+
+  </Transition>
+
+  <!-- wrapper part -->
+  <div ref='scrollWrapperRef' bg-main-bg color-white w-full antialiased tracking-widest snap-y h-screen overflow-auto
+    snap-mandatory scroll-smooth :class="{ 'overflow-hidden': upDetailShow }">
+    <!-- Hero Section scroll -->
+    <section ref="section-hero" w-full h-screen snap-start :class="{ blur: upDetailShow }" transition-all>
+      <div overflow-hidden relative size-full>
+        <img absolute class="lg:w-2/6 w-6/9" bottom-0 right--4 src="/imgs/25601440.jpg" alt="">
+        <div absolute class="lg:w-1/3 w-6/9" top-18 left-4>
+          <img w-full src="/imgs/DL改版-FILM.png" alt="">
+          <div absolute w-20 h-10 bottom-0 text-base translate-y-full-0.2 rounded-3xl text-blue-apple
+            @click="upDetailShowChange" cursor-pointer>了解凯文</div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Phone Section scroll -->
+    <section w-full h-screen snap-start px-4 box-border overflow-y-auto scroll-smooth lg:hidden>
+      <section ref="section-arts" w-full flex flex-col items-center>
+        <div h-18 flex-shrink-0></div>
+        <div self-start mb-4 text-3xl flex-shrink-0>正在更新</div>
+        <div w-full @click=heroClickHandler(picList.updataing!)>
+          <section overflow-hidden aspect-video rounded-lg mb-1.5>
+            <img size-full :src="picList.updataing?.url" alt="">
+          </section>
+          <div text-sm text-gray w-20 h-4>{{ picList.updataing?.tag }}</div>
+          <div text-base h-4 w-full>{{ picList.updataing?.name }}</div>
+        </div>
+      </section>
+      <div block-divid lg:hidden></div>
+      <section w-full flex flex-col items-center>
+        <div self-start my-4 text-3xl flex-shrink-0>往期作品</div>
+        <section w-full flex box-border snap-x snap-proximity overflow-x-scroll overflow-y-hidden>
+          <template v-for="i in picList.thePast">
+            <div @click=heroClickHandler(i) snap-start class="w-3/4 " flex-grow-0 flex-shrink-0 pr-2 box-border h-auto>
+              <img w-full aspect-video rounded-lg :src="i.url" alt="">
+              <div text-xs text-gray w-16 h-3 mt-0.5>{{ i.tag }}</div>
+              <div text-sm h-4 w-full>{{ i.name }}</div>
+            </div>
+          </template>
+        </section>
+      </section>
+      <section ref="section-playtogether" w-full>
+        <div h-18></div>
+        <div mb-4 text-3xl>一起玩游戏</div>
+        <div>
+          <template v-for="gameCardInfo in gameCards">
+            <GameCard class="w-full" :gameCardInfo="gameCardInfo" mb-8></GameCard>
+          </template>
+        </div>
+      </section>
+    </section>
+
+    <!-- PC section scroll -->
+    <section w-full h-screen snap-start px-12 box-border overflow-y-auto scroll-smooth hidden lg:block>
+      <section ref="section-arts-pc" w-full pt-10 flex gap-8 text-3xl>
+        <div class="w-2/5">
+          <div mb-4>正在更新</div>
+          <div w-full cursor-pointer @click=heroClickHandler(picList.updataing!) flex flex-col>
+            <section w-full aspect-video mb-1>
+              <img w-full rounded-lg :src="picList.updataing?.url" alt="">
+            </section>
+            <div text-base text-gray w-20 h-4.5>{{ picList.updataing?.tag }}</div>
+            <div text-xl h-4 w-full>{{ picList.updataing?.name }}</div>
+          </div>
+        </div>
+        <div class="w-3/5" flex flex-col>
+          <div mb-4>往期作品</div>
+          <div flex flex-grow-1>
+            <section w-full flex-grow-1 grid grid-cols-3 gap-4 content-between>
+              <template v-for="i in currenSixPast">
+                <div w-full @click=heroClickHandler(i) cursor-pointer>
+                  <div w-full aspect-video mb-1>
+                    <img size-full rounded-lg :src="i.url" alt="">
+                  </div>
+                  <div text-xs text-gray w-16 h-3.5>{{ i.tag }}</div>
+                  <div text-base h-3.5 w-full>{{ i.name }}</div>
+                </div>
+              </template>
+            </section>
+            <div @click="addPage" cursor-pointer hover:bg-gray-8 w-8 h-20 ml-2 transition-all border-2 border-gray-7
+              border-solid rounded text-sm flex-center flex-wrap p-2>
+              <div class="i-mingcute-refresh-3-line" w-5 h-5></div>
+              <div>下</div>
+              <div>一</div>
+              <div>页</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section ref="section-playtogether-pc" w-full hidden lg:block>
+        <div h-10></div>
+        <div mb-4 text-3xl>一起玩游戏</div>
+        <div flex flex-wrapg gap-6>
+          <template v-for="gameCardInfo in gameCards">
+            <GameCard class="w-60" :gameCardInfo="gameCardInfo" pcmode mb-8></GameCard>
+          </template>
+        </div>
+      </section>
+
+      <!-- sponsor section -->
+      <section w-full h-screen>
+        1111
+      </section>
+      <section w-full h-screen>
+        1111
+      </section>
+      <section w-full h-screen>
+        1111
+      </section>
+    </section>
+  </div>
+
+
 </template>
 
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
+import artsLinkjson from '@/assets/examplejson/artsLink.json'
+import menuListjson from '@/assets/examplejson/menuList.json'
+import gameCardsjson from '@/assets/examplejson/gameCards.json'
+import { GameCardInfo } from '@/types/common'
+import { chunkArray } from '@/utils/math'
+import GameCard from '@/components/GameCard.vue'
+const upDetailShow = ref(false)
+const upDetailShowChange = () => {
+  upDetailShow.value = !upDetailShow.value
+}
+const scrollWrapperRef = ref<null | HTMLDivElement>(null)
+let resizeObserver;
+const innerWidth = ref(0);
+const lgMode = computed(() => innerWidth.value >= 1024)
+onMounted(() => {
+  resizeObserver = new ResizeObserver(entries => {
+    for (const entry of entries) {
+      innerWidth.value = entry.contentRect.width;
+    }
+  });
+  resizeObserver.observe(scrollWrapperRef.value!);
+});
+
 const menuOpen = ref(false)
 const changeMenu = () => {
   menuOpen.value = !menuOpen.value
-}
-const scrollWrapperRef = ref<null | HTMLDivElement>(null)
-
-const router = useRouter()
-const navigateTo = (src: string) => {
-  router.push(src)
 }
 
 const heroClickHandler = (item: artsItem) => {
@@ -104,115 +185,47 @@ const heroClickHandler = (item: artsItem) => {
   if (!link) return
   window.open(link)
 }
+
 const menuClickHandle = (item: menuItem, delay: boolean = false) => {
   if (delay)
     changeMenu()
-  if (item.refName)
-    scrollIntoView(item.refName)
+
+  let el: HTMLElement | undefined
+  if (lgMode.value) {
+    // pc
+    el = pageRefs.value![item.pcRefName!] as HTMLElement
+  } else {
+    //phone
+    el = pageRefs.value![item.refName!] as HTMLElement
+  }
+  if (!el)
+    el = pageRefs.value![item.refName!] as HTMLElement
+  el.scrollIntoView()
 }
 const ins = getCurrentInstance()
 const pageRefs = computed(() => {
   return ins?.refs
 })
-const scrollIntoView = (refName: string) => {
-  const el = pageRefs.value![refName] as HTMLElement
-  if (!el) return
-  el.scrollIntoView()
-}
+
+const gameCards = ref<GameCardInfo[]>(gameCardsjson)
+
 type menuItem = {
   refName?: string
+  pcRefName?: string
   name: string
   path: string
 }
-const menuList = ref<Array<menuItem>>([
-  {
-    name: 'UP主简介',
-    path: '/intro',
-    refName: 'section-hero'
-  },
-  {
-    name: '凯文作品',
-    path: '/arts',
-    refName: 'section-arts'
-  },
-  {
-    name: '一起玩游戏',
-    path: '/playtogether',
-    refName: '12312'
-  },
-  {
-    name: '粉丝卡片',
-    path: '/cards',
-    refName: '3123'
-  },
-  {
-    name: '联系我们',
-    path: '/contact',
-    refName: '12312'
-  },
-])
+const menuList = ref<Array<menuItem>>(menuListjson)
+console.log(JSON.stringify(menuList.value))
 type artsItem = {
   index: number,
   name: string,
   url: string,
-  link?: string
+  link?: string,
+  tag?: string
 }
-const artsLink = ref<Array<artsItem>>([
-  {
-    index: 0,
-    name: '',
-    url: '/imgs/DayzNamalsk.jpg',
-    link: 'https://www.bilibili.com/video/BV13i4y1Q7Aa/?share_source=copy_web&vd_source=9ddc1049990662aba9ddb9dc23fdd638'
-  },
-  {
-    index: 1,
-    name: '',
-    url: '/imgs/Imnotscum.jpg',
-    link: 'https://www.bilibili.com/video/BV1DY41147Dd/?share_source=copy_web&vd_source=9ddc1049990662aba9ddb9dc23fdd638'
-  },
-  {
-    index: 2,
-    name: '',
-    url: '/imgs/deadisland.jpg',
-    link: ''
-  },
-  {
-    index: 3,
-    name: '',
-    url: '/imgs/thelastone.jpg',
-    link: ''
-  },
-  {
-    index: 4,
-    name: '',
-    url: '/imgs/sevendaysA20.jpg',
-    link: ''
-  },
-  {
-    index: 5,
-    name: '',
-    url: '/imgs/Theroad.png',
-    link: ''
-  },
-  {
-    index: 6,
-    name: '',
-    url: '/imgs/thelast.jpg',
-    link: ''
-  },
-  {
-    index: 7,
-    name: '',
-    url: '/imgs/sevendays2.png',
-    link: ''
-  },
-  {
-    index: 8,
-    name: '',
-    url: '/imgs/a21.png',
-    link: ''
-  }
-])
+
+const artsLink = ref<Array<artsItem>>(artsLinkjson)
 const picList = computed(() => {
   const cloneArr = artsLink.value.map(i => i)
   const updataing = cloneArr.shift()
@@ -222,7 +235,17 @@ const picList = computed(() => {
   }
 })
 
-
+const sixPast = reactive({
+  page: 0,
+  list: chunkArray(picList.value.thePast, 6)
+})
+const addPage = () => {
+  sixPast.page++
+}
+const currenSixPast = computed(() => {
+  const maxPage = sixPast.list.length
+  return sixPast.list[sixPast.page % maxPage]
+})
 
 </script>
 
@@ -236,12 +259,40 @@ const picList = computed(() => {
   opacity: 0;
 }
 
-.snap {
-  scroll-snap-type: y mandatory;
-}
-
 section::-webkit-scrollbar,
 div::-webkit-scrollbar {
   display: none;
+}
+
+/*
+  进入和离开动画可以使用不同
+  持续时间和速度曲线。
+*/
+.leftfrom-enter-active {
+  transition: all 0.3s linear;
+}
+
+.leftfrom-leave-active {
+  transition: all 0.3s linear;
+}
+
+.leftfrom-enter-from,
+.leftfrom-leave-to {
+  opacity: 0;
+}
+
+.leftfrom-enter-to,
+.leftfrom-leave-from {
+  opacity: 1;
+}
+
+.blur {
+  filter: blur(10px);
+
+}
+
+.blur::backdrop {
+  filter: blur(10px);
+
 }
 </style>

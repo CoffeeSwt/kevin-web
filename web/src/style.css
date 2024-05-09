@@ -1,7 +1,12 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "PingFangSCB3df80d7dfb25afb";
+  font-family: "HiraginoGBW33e00a0ba4625afb";
   overflow: hidden;
 }
+
+:root{
+  max-height: 9999999999px;
+}
+
 
