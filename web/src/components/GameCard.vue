@@ -5,7 +5,7 @@
             :class="{ 'bg-cover': pcmode, 'aspect-43': pcmode, 'aspect-video': !pcmode }">
         </div>
         <div text-sm flex-center :class="{ 'text-sm': pcmode, 'py-4': pcmode, 'font-600': pcmode }" z-3 bg-blue-bar
-            py-1>
+            py-1 font-medium>
             {{ gameCardInfo.name }}
         </div>
         <div w-full h-full absolute top-0 left-0 text-2xl invisible group-hover:visible transition-all flex-center>

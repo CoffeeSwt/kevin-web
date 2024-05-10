@@ -15,7 +15,7 @@
     <Transition name="pack_up">
       <ul v-show="menuOpen" px-2 list-none flex flex-col gap-4 my-0 lg:hidden>
         <template v-for="item in menuList">
-          <li @click="menuClickHandle(item, true)" block rounded-lg px-4 py-2 text-4xl font-medium flex justify-start>
+          <li @click="menuClickHandle(item, true)" block rounded-lg px-4 py-2 text-4xl font-bold flex justify-start>
             <span inline-block>{{ item.name }}</span>
           </li>
         </template>
@@ -36,23 +36,23 @@
           </div>
         </div>
         <div flex justify-between items-center>
-          <div text-4xl>凯文</div>
+          <div text-4xl font-medium>凯文</div>
           <div text-xs flex items-center flex-col>
             <div text-xs flex items-center gap-1 cursor-pointer
               @click="linkJump('https://space.bilibili.com/24738225')">
               <div i-ant-design-bilibili-filled w-5 h-5>
               </div>
-              <div>凯文不是大叔</div>
+              <div font-light>凯文不是大叔</div>
             </div>
             <div text-xs flex items-center gap-1 cursor-pointer @click="linkJump('https://v.douyin.com/i2yowJyy/')">
               <div i-ant-design-tik-tok-filled w-5 h-5>
               </div>
-              <div>凯文是男同学</div>
+              <div font-light>凯文是男同学</div>
             </div>
           </div>
         </div>
         <div h-2 flex-shrink-0></div>
-        <div text-sm overflow-y-scroll scroll-smooth>
+        <div text-sm overflow-y-scroll scroll-smooth font-light>
           <p>凯文，一个典型的斜杠青年。1989年出生于武汉，UP主、人像摄影师、空间摄影师、导演、品牌策划师、创意人，广告人。</p>
           <p>
             2020年7月，决定放下手上的商业项目投身UP主行列，他创作的视频作品无疑在多个方面多展现出了其独特的魅力和高质量。凯文之所以受到广大网友的喜爱和认可，不仅仅是因为他在游戏电影领域的专业制作技巧，更是因为他对于内容的深度挖掘和对于观众需求的精准把握。
@@ -87,11 +87,11 @@
         <div flex-grow-1 overflow-hidden h-full flex flex-col>
           <div flex flex-col items-start>
             <div text-5xl mb-2 flex justify-between w-full>
-              <div>凯文</div>
+              <div font-bold>凯文</div>
               <div @click="upDetailShowChange" i-gg-close-o size-12 cursor-pointer color-white-light
                 hover:bg-light-black transition-all flex-shrink-0></div>
             </div>
-            <div text-2xl flex items-center flex-col>
+            <div text-2xl flex items-center flex-col font-normal>
               <div flex items-center gap-1 cursor-pointer hover:translate-x-2 transition-all
                 @click="linkJump('https://space.bilibili.com/24738225')">
                 <div i-ant-design-bilibili-filled size-8>
@@ -107,7 +107,7 @@
             </div>
           </div>
           <div h-2 flex-shrink-0></div>
-          <div text-base overflow-y-scroll scroll-smooth pt-2 flex-grow-1>
+          <div text-base overflow-y-scroll scroll-smooth pt-2 flex-grow-1 font-light>
             <p mt-0>凯文，一个典型的斜杠青年。1989年出生于武汉，UP主、人像摄影师、空间摄影师、导演、品牌策划师、创意人，广告人。</p>
             <p>
               2020年7月，决定放下手上的商业项目投身UP主行列，他创作的视频作品无疑在多个方面多展现出了其独特的魅力和高质量。凯文之所以受到广大网友的喜爱和认可，不仅仅是因为他在游戏电影领域的专业制作技巧，更是因为他对于内容的深度挖掘和对于观众需求的精准把握。
@@ -156,7 +156,7 @@
             cursor-pointer lg:text-xl lg:w-30 flex items-center bg-light-black justify-center mt-2 hover:scale-90
             transition-all>
             <div i-ic-outline-add-circle-outline w-4 h-4 lg:h-6 lg:w-6></div>
-            <div text-xs lg:text-base>了解凯文</div>
+            <div text-xs font-medium lg:text-base>了解凯文</div>
           </div>
         </div>
         <div flex absolute lg:left-16 left-4 bottom-8>
@@ -173,31 +173,31 @@
     <section w-full h-screen snap-start px-4 box-border overflow-y-auto scroll-smooth lg:hidden>
       <section ref="section-arts" w-full flex flex-col items-center>
         <div h-18 flex-shrink-0></div>
-        <div self-start mb-4 text-3xl flex-shrink-0>正在更新</div>
+        <div self-start mb-4 text-3xl flex-shrink-0 font-bold>正在更新</div>
         <div w-full @click=heroClickHandler(picList.updataing!)>
           <section overflow-hidden aspect-video rounded-lg mb-1.5>
             <img size-full :src="picList.updataing?.url" alt="">
           </section>
-          <div text-sm text-gray w-20 h-4>{{ picList.updataing?.tag }}</div>
-          <div text-base h-4 w-full>{{ picList.updataing?.name }}</div>
+          <div text-sm text-gray w-20 h-4 font-light>{{ picList.updataing?.tag }}</div>
+          <div text-base h-4 w-full font-medium>{{ picList.updataing?.name }}</div>
         </div>
       </section>
       <div block-divid lg:hidden></div>
       <section w-full flex flex-col items-center>
-        <div self-start my-4 text-3xl flex-shrink-0>往期作品</div>
-        <section w-full flex box-border snap-x snap-proximity overflow-x-scroll overflow-y-hidden>
+        <div self-start my-4 text-3xl font-bold>往期作品</div>
+        <section w-full flex box-border snap-x snap-proximity overflow-x-scroll overflow-y-hidden flex-grow-1>
           <template v-for="i in picList.thePast">
             <div @click=heroClickHandler(i) snap-start class="w-3/4 " flex-grow-0 flex-shrink-0 pr-2 box-border h-auto>
-              <img w-full aspect-video rounded-lg :src="i.url" alt="">
-              <div text-xs text-gray w-16 h-3 mt-0.5>{{ i.tag }}</div>
-              <div text-sm h-4 w-full>{{ i.name }}</div>
+              <img box-border w-full aspect-video rounded-lg :src="i.url" alt="">
+              <div box-border text-xs text-gray w-16 h-3 mt-0.5 font-extraLight>{{ i.tag }}</div>
+              <div box-border text-sm w-full mt-0.5 font-regular>{{ i.name }}</div>
             </div>
           </template>
         </section>
       </section>
       <section ref="section-playtogether" w-full>
         <div h-18></div>
-        <div mb-4 text-3xl>一起玩游戏</div>
+        <div mb-4 text-3xl font-bold>一起玩游戏</div>
         <div>
           <template v-for="gameCardInfo in gameCards">
             <GameCard class="w-full" :gameCardInfo="gameCardInfo" mb-8></GameCard>
@@ -206,17 +206,17 @@
       </section>
       <section ref="section-cards" w-full>
         <div h-18></div>
-        <div mb-4 text-3xl>特别鸣谢</div>
+        <div mb-4 text-3xl font-bold>特别鸣谢</div>
         <div h-8></div>
         <div w-full>
           <template v-for="i in sponsors">
-            <div class="w-3/4" mx-auto flex flex-col items-center mb-16 bg-black-l-1 p-11 px-8 rounded-2xl box-border
+            <div class="w-4/5" mx-auto flex flex-col items-center mb-16 bg-black-l-1 p-11 px-8 rounded-2xl box-border
               aspect-43>
               <div flex flex-col items-center>
                 <div w-20 h-20 bg-white rounded-full flex-center overflow-hidden>
                   <img :src="i.avator" alt="">
                 </div>
-                <div mt-6 mb-4 text-2xl>{{ i.name }}</div>
+                <div mt-6 mb-4 text-2xl font-bold>{{ i.name }}</div>
               </div>
               <div w-full text-sm text-center whitespace-pre-wrap tracking-widest line-height-relaxed>
                 {{ i.text }}
@@ -228,12 +228,12 @@
 
       <section ref="section-contact" w-full min-h-screen>
         <div h-18></div>
-        <div mb-4 text-3xl>联系我们</div>
+        <div mb-4 text-3xl font-bold>联系我们</div>
         <div h-8></div>
         <div w-full>
           <!-- 广告与植入 -->
           <div w-full>
-            <div text-xl>广告与植入</div>
+            <div text-xl font-medium>广告与植入</div>
             <div class="w-full" my-2>
               围绕用户、创作者和内容，B站构建了一个源源不断产生优质内容的生态系统。中国最优秀的专业创作者都聚集在B站创作内容，涵盖生活、游戏、时尚、知识、音乐等数千个品类和圈层，引领着流行文化的风潮，成为中文互联网极其独特的存在。目前，B站94%的视频播放量都来自于专业用户创作的视频（Professional
               User Generated Video，PUGV）。
@@ -242,7 +242,7 @@
           <div h-8></div>
           <!-- 粉丝群 -->
           <div w-full>
-            <div text-xl>粉丝群</div>
+            <div text-xl font-medium>粉丝群</div>
             <div class="w-full" my-2>
               围绕用户、创作者和内容，B站构建了一个源源不断产生优质内容的生态系统。中国最优秀的专业创作者都聚集在B站创作内容，涵盖生活、游戏、时尚、知识、音乐等数千个品类和圈层，引领着流行文化的风潮，成为中文互联网极其独特的存在。目前，B站94%的视频播放量都来自于专业用户创作的视频（Professional
               User Generated Video，PUGV）。
@@ -265,17 +265,17 @@
     <section w-full h-screen snap-start px-12 box-border overflow-y-auto scroll-smooth hidden lg:block>
       <section ref="section-arts-pc" w-full pt-10 flex gap-8 text-3xl>
         <div class="w-2/5">
-          <div mb-4>正在更新</div>
+          <div mb-4 font-heavy>正在更新</div>
           <div w-full cursor-pointer @click=heroClickHandler(picList.updataing!) flex flex-col>
             <section w-full aspect-video mb-1>
               <img w-full rounded-lg :src="picList.updataing?.url" alt="">
             </section>
-            <div text-base text-gray w-20 h-4.5>{{ picList.updataing?.tag }}</div>
-            <div text-xl h-4 w-full>{{ picList.updataing?.name }}</div>
+            <div text-base text-gray w-20 h-4.5 font-normal>{{ picList.updataing?.tag }}</div>
+            <div text-xl h-4 w-ful font-regular>{{ picList.updataing?.name }}</div>
           </div>
         </div>
         <div class="w-3/5" flex flex-col>
-          <div mb-4>往期作品</div>
+          <div mb-4 font-heavy>往期作品</div>
           <div flex flex-grow-1>
             <section w-full flex-grow-1 grid grid-cols-3 gap-4 content-between>
               <template v-for="i in currenSixPast">
@@ -283,8 +283,8 @@
                   <div w-full aspect-video mb-1>
                     <img size-full rounded-lg :src="i.url" alt="">
                   </div>
-                  <div text-xs text-gray w-16 h-3.5>{{ i.tag }}</div>
-                  <div text-base h-3.5 w-full>{{ i.name }}</div>
+                  <div text-xs text-gray w-16 h-3.5 font-light>{{ i.tag }}</div>
+                  <div text-base h-3.5 w-full font-normal>{{ i.name }}</div>
                 </div>
               </template>
             </section>
@@ -301,7 +301,7 @@
 
       <section ref="section-playtogether-pc" w-full hidden lg:block lg:mt-8>
         <div h-10></div>
-        <div mb-4 text-3xl>一起玩游戏</div>
+        <div mb-4 text-3xl font-heavy>一起玩游戏</div>
         <div flex flex-wrapg gap-6>
           <template v-for="gameCardInfo in gameCards">
             <GameCard class="w-60" :gameCardInfo="gameCardInfo" pcmode mb-8></GameCard>
@@ -312,16 +312,16 @@
       <!-- sponsor section -->
       <section ref="section-cards-pc" w-full lg:mt-8>
         <div h-10></div>
-        <div mb-8 text-3xl>特别鸣谢</div>
+        <div mb-8 font-heavy text-3xl>特别鸣谢</div>
         <div w-full flex gap-12 flex-wrap>
           <template v-for="i in sponsors">
-            <div w-50 flex flex-col items-center aspect-43 bg-black-l-1 p-8 rounded-2xl pt-12 hover:translate-y--5
+            <div w-55 flex flex-col items-center aspect-43 bg-black-l-1 p-8 rounded-2xl pt-12 hover:translate-y--5
               transition-all>
               <div flex flex-col items-center>
                 <div w-20 h-20 bg-white rounded-full flex-center overflow-hidden>
                   <img :src="i.avator" alt="">
                 </div>
-                <div mt-6 mb-5 text-2xl>{{ i.name }}</div>
+                <div mt-6 mb-5 text-2xl font-bold text-center>{{ i.name }}</div>
               </div>
               <div text-sm text-center whitespace-pre-wrap tracking-widest line-height-relaxed flex-grow-1>
                 {{ i.text }}
@@ -333,11 +333,11 @@
 
       <section ref="section-contact-pc" w-full min-h-screen-50 mt-8>
         <div h-10></div>
-        <div mb-12 text-3xl>联系我们</div>
+        <div mb-12 text-3xl font-heavy>联系我们</div>
         <div w-full>
           <!-- 广告与植入 -->
           <div w-full>
-            <div text-xl>广告与植入</div>
+            <div text-xl font-bold>广告与植入</div>
             <div class="w-2/5" my-2>
               围绕用户、创作者和内容，B站构建了一个源源不断产生优质内容的生态系统。中国最优秀的专业创作者都聚集在B站创作内容，涵盖生活、游戏、时尚、知识、音乐等数千个品类和圈层，引领着流行文化的风潮，成为中文互联网极其独特的存在。目前，B站94%的视频播放量都来自于专业用户创作的视频（Professional
               User Generated Video，PUGV）。
@@ -346,7 +346,7 @@
           <div h-8></div>
           <!-- 粉丝群 -->
           <div w-full>
-            <div text-xl>粉丝群</div>
+            <div text-xl font-bold>粉丝群</div>
             <div class="w-2/5" my-2>
               围绕用户、创作者和内容，B站构建了一个源源不断产生优质内容的生态系统。中国最优秀的专业创作者都聚集在B站创作内容，涵盖生活、游戏、时尚、知识、音乐等数千个品类和圈层，引领着流行文化的风潮，成为中文互联网极其独特的存在。目前，B站94%的视频播放量都来自于专业用户创作的视频（Professional
               User Generated Video，PUGV）。
