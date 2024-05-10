@@ -26,11 +26,120 @@
   <!-- UP Detail Part-->
   <Transition name="leftfrom">
     <div v-if="upDetailShow" fixed rounded-lg drop-shadow-lg bg-gray-dark opacity-95
-      class="lg:w-40% h-30% w-65% h-60% top-1/2 left-1/2 translate-x--1/2 translate-y--1/2" z-9999 flex flex-col
+      class="lg:w-60% h-30% w-70% h-70% top-1/2 left-1/2 translate-x--1/2 translate-y--1/2" z-9999 flex flex-col
       items-center lg:p-8 p-4>
-      <div flex-grow></div>
-      <div @click="upDetailShowChange" i-gg-close-o size-10 lg:size-12 cursor-pointer color-white-light
-        hover:bg-light-black transition-all></div>
+      <!-- phone up detail box -->
+      <div lg:hidden flex-grow text-white-light w-full flex flex-col overflow-hidden antialiased tracking-widest>
+        <div flex-center flex-shrink-0 w-full>
+          <div class="w-full" aspect-square>
+            <img size-full rounded-lg src="/avator/kevin.jpg" alt="">
+          </div>
+        </div>
+        <div flex justify-between items-center>
+          <div text-4xl>凯文</div>
+          <div text-xs flex items-center flex-col>
+            <div text-xs flex items-center gap-1 cursor-pointer
+              @click="linkJump('https://space.bilibili.com/24738225')">
+              <div i-ant-design-bilibili-filled w-5 h-5>
+              </div>
+              <div>凯文不是大叔</div>
+            </div>
+            <div text-xs flex items-center gap-1 cursor-pointer @click="linkJump('https://v.douyin.com/i2yowJyy/')">
+              <div i-ant-design-tik-tok-filled w-5 h-5>
+              </div>
+              <div>凯文是男同学</div>
+            </div>
+          </div>
+        </div>
+        <div h-2 flex-shrink-0></div>
+        <div text-sm overflow-y-scroll scroll-smooth>
+          <p>凯文，一个典型的斜杠青年。1989年出生于武汉，UP主、人像摄影师、空间摄影师、导演、品牌策划师、创意人，广告人。</p>
+          <p>
+            2020年7月，决定放下手上的商业项目投身UP主行列，他创作的视频作品无疑在多个方面多展现出了其独特的魅力和高质量。凯文之所以受到广大网友的喜爱和认可，不仅仅是因为他在游戏电影领域的专业制作技巧，更是因为他对于内容的深度挖掘和对于观众需求的精准把握。
+          </p>
+          <p>
+            首先，从制作技术层面来看，凯文不是大叔的视频作品堪称精良。无论是剪辑手法的运用，还是特效的添加，都显示出他对于视频制作的专业素养和深厚功底。他的视频往往能够将游戏画面与电影元素完美结合，为观众呈现出一种既熟悉又新颖的视听体验。这种高质量的制作水准，使得他的视频在游戏电影领域独树一帜，赢得了大量粉丝的追捧和喜爱。
+          </p>
+
+          <p>
+            其次，凯文不是大叔的视频内容丰富多样，涵盖了众多游戏和电影题材。他不仅能够深入挖掘游戏的内在魅力，将游戏故事以电影化的方式呈现给观众，还能够结合热门电影事件，创作出富有创意和趣味性的视频作品。这种多样化的内容选择，不仅满足了不同观众的喜好和需求，也使得他的视频更具吸引力和影响力。
+          </p>
+
+          <p>
+            此外，凯文不是大叔在视频创作中还注重与观众的互动和沟通。他经常在视频下方留言区与观众进行互动，倾听他们的意见和建议，不断改进自己的创作方式。这种与观众的紧密互动，不仅增强了观众的参与感和归属感，也使得他的视频更加贴近观众的实际需求，更具观赏性和共鸣力。
+          </p>
+          <p>
+            在游戏电影领域，凯文不是大叔的视频无疑是最好的之一。他以其独特的创作风格和高质量的制作水准，赢得了广大网友的认可和喜爱。他的视频作品不仅给观众带来了极致的视听享受，也引发了人们对于游戏和电影艺术的深度思考和探讨。可以说，凯文不是大叔的视频作品在游戏电影领域树立了一个新的标杆，为后来的创作者提供了宝贵的借鉴和启示。
+          </p>
+          <p>
+            最后，凯文不是大叔的视频之所以能够受到如此广泛的赞誉和好评，还因为他对于创作的热情和坚持。他始终保持着对于游戏和电影艺术的热爱和追求，不断尝试新的创作方式和手法，力求为观众带来更加精彩和有趣的作品。这种对于创作的热情和坚持，使得他的视频作品始终保持着高质量和创新性，不断引领着游戏电影领域的发展潮流。
+          </p>
+          <p>
+            哔哩哔哩UP主凯文不是大叔的视频作品在游戏电影领域堪称最佳之一。他以其独特的创作风格、高质量的制作水准和与观众的紧密互动，赢得了广大网友的喜爱和认可。他的视频作品不仅为观众带来了极致的视听享受，也引发了人们对于游戏和电影艺术的深度思考和探讨。相信在未来的日子里，凯文不是大叔会继续创作出更多优秀的视频作品，为游戏电影领域的发展贡献自己的力量。
+          </p>
+        </div>
+      </div>
+      <!-- pc up detail box -->
+      <div hidden flex-grow text-white-light w-full lg:flex gap-6 overflow-hidden antialiased tracking-widest h-full>
+        <div flex-shrink-0 class="w-2/5">
+          <img size-full rounded-lg src="/avator/kevin1.jpg" alt="">
+        </div>
+        <div flex-grow-1 overflow-hidden h-full flex flex-col>
+          <div flex flex-col items-start>
+            <div text-5xl mb-2 flex justify-between w-full>
+              <div>凯文</div>
+              <div @click="upDetailShowChange" i-gg-close-o size-12 cursor-pointer color-white-light
+                hover:bg-light-black transition-all flex-shrink-0></div>
+            </div>
+            <div text-2xl flex items-center flex-col>
+              <div flex items-center gap-1 cursor-pointer hover:translate-x-2 transition-all
+                @click="linkJump('https://space.bilibili.com/24738225')">
+                <div i-ant-design-bilibili-filled size-8>
+                </div>
+                <div>凯文不是大叔</div>
+              </div>
+              <div flex items-center gap-1 cursor-pointer hover:translate-x-2 transition-all
+                @click="linkJump('https://v.douyin.com/i2yowJyy/')">
+                <div i-ant-design-tik-tok-filled size-8>
+                </div>
+                <div>凯文是男同学</div>
+              </div>
+            </div>
+          </div>
+          <div h-2 flex-shrink-0></div>
+          <div text-base overflow-y-scroll scroll-smooth pt-2 flex-grow-1>
+            <p mt-0>凯文，一个典型的斜杠青年。1989年出生于武汉，UP主、人像摄影师、空间摄影师、导演、品牌策划师、创意人，广告人。</p>
+            <p>
+              2020年7月，决定放下手上的商业项目投身UP主行列，他创作的视频作品无疑在多个方面多展现出了其独特的魅力和高质量。凯文之所以受到广大网友的喜爱和认可，不仅仅是因为他在游戏电影领域的专业制作技巧，更是因为他对于内容的深度挖掘和对于观众需求的精准把握。
+            </p>
+            <p>
+              首先，从制作技术层面来看，凯文不是大叔的视频作品堪称精良。无论是剪辑手法的运用，还是特效的添加，都显示出他对于视频制作的专业素养和深厚功底。他的视频往往能够将游戏画面与电影元素完美结合，为观众呈现出一种既熟悉又新颖的视听体验。这种高质量的制作水准，使得他的视频在游戏电影领域独树一帜，赢得了大量粉丝的追捧和喜爱。
+            </p>
+
+            <p>
+              其次，凯文不是大叔的视频内容丰富多样，涵盖了众多游戏和电影题材。他不仅能够深入挖掘游戏的内在魅力，将游戏故事以电影化的方式呈现给观众，还能够结合热门电影事件，创作出富有创意和趣味性的视频作品。这种多样化的内容选择，不仅满足了不同观众的喜好和需求，也使得他的视频更具吸引力和影响力。
+            </p>
+
+            <p>
+              此外，凯文不是大叔在视频创作中还注重与观众的互动和沟通。他经常在视频下方留言区与观众进行互动，倾听他们的意见和建议，不断改进自己的创作方式。这种与观众的紧密互动，不仅增强了观众的参与感和归属感，也使得他的视频更加贴近观众的实际需求，更具观赏性和共鸣力。
+            </p>
+            <p>
+              在游戏电影领域，凯文不是大叔的视频无疑是最好的之一。他以其独特的创作风格和高质量的制作水准，赢得了广大网友的认可和喜爱。他的视频作品不仅给观众带来了极致的视听享受，也引发了人们对于游戏和电影艺术的深度思考和探讨。可以说，凯文不是大叔的视频作品在游戏电影领域树立了一个新的标杆，为后来的创作者提供了宝贵的借鉴和启示。
+            </p>
+            <p>
+              最后，凯文不是大叔的视频之所以能够受到如此广泛的赞誉和好评，还因为他对于创作的热情和坚持。他始终保持着对于游戏和电影艺术的热爱和追求，不断尝试新的创作方式和手法，力求为观众带来更加精彩和有趣的作品。这种对于创作的热情和坚持，使得他的视频作品始终保持着高质量和创新性，不断引领着游戏电影领域的发展潮流。
+            </p>
+            <p>
+              哔哩哔哩UP主凯文不是大叔的视频作品在游戏电影领域堪称最佳之一。他以其独特的创作风格、高质量的制作水准和与观众的紧密互动，赢得了广大网友的喜爱和认可。他的视频作品不仅为观众带来了极致的视听享受，也引发了人们对于游戏和电影艺术的深度思考和探讨。相信在未来的日子里，凯文不是大叔会继续创作出更多优秀的视频作品，为游戏电影领域的发展贡献自己的力量。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- footer -->
+      <div h-2 flex-shrink-0></div>
+      <div @click="upDetailShowChange" lg:hidden i-gg-close-o size-10 cursor-pointer color-white-light
+        hover:bg-light-black transition-all flex-shrink-0></div>
     </div>
   </Transition>
 
@@ -247,7 +356,8 @@
           <!-- 媒体平台 -->
           <div w-full flex mb-10>
             <div i-ant-design-bilibili-filled w-15 h-15 @click="linkJump('https://space.bilibili.com/24738225')"
-              cursor-pointer></div>
+              cursor-pointer>
+            </div>
             <div i-ant-design-tik-tok-filled w-15 h-15 cursor-pointer
               @click="linkJump('https://v.douyin.com/i2yowJyy/')">
             </div>
