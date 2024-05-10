@@ -81,8 +81,8 @@
       </div>
       <!-- pc up detail box -->
       <div hidden flex-grow text-white-light w-full lg:flex gap-6 overflow-hidden antialiased tracking-widest h-full>
-        <div flex-shrink-0 class="w-2/5">
-          <img size-full rounded-lg src="/avator/kevin1.jpg" alt="">
+        <div flex-shrink-0>
+          <img h-full rounded-lg src="/avator/kevin1.jpg" alt="">
         </div>
         <div flex-grow-1 overflow-hidden h-full flex flex-col>
           <div flex flex-col items-start>
