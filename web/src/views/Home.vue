@@ -26,12 +26,11 @@
   <!-- UP Detail Part-->
   <Transition name="leftfrom">
     <div v-if="upDetailShow" fixed rounded-lg drop-shadow-lg bg-gray-dark opacity-95
-      class="lg:w-40% h-30% w-80% h-60% top-1/2 left-1/2 translate-x--1/2 translate-y--1/2" z-9999 flex flex-col
-      items-center p-8>
+      class="lg:w-40% h-30% w-65% h-60% top-1/2 left-1/2 translate-x--1/2 translate-y--1/2" z-9999 flex flex-col
+      items-center lg:p-8 p-4>
       <div flex-grow></div>
-      <div @click="upDetailShowChange" i-gg-close-o w-10 h-10 cursor-pointer color-white-light hover:bg-light-black
-        transition-all></div>
-
+      <div @click="upDetailShowChange" i-gg-close-o size-10 lg:size-12 cursor-pointer color-white-light
+        hover:bg-light-black transition-all></div>
     </div>
   </Transition>
 
@@ -50,12 +49,12 @@
             <div i-ic-outline-add-circle-outline w-4 h-4 lg:h-6 lg:w-6></div>
             <div text-xs lg:text-base>了解凯文</div>
           </div>
-          <div flex>
-            <div i-ant-design-bilibili-filled w-15 h-15 lg:translate-y-full translate-y-full-9 cursor-pointer
-              hover:translate-y-full--0.4 transition-all @click="linkJump('https://space.bilibili.com/24738225')"></div>
-            <div i-ant-design-tik-tok-filled w-15 h-15 lg:translate-y-full cursor-pointer hover:translate-y-full--0.4
-              translate-y-full-9 transition-all @click="linkJump('https://v.douyin.com/i2yowJyy/')">
-            </div>
+        </div>
+        <div flex absolute lg:left-16 left-4 bottom-8>
+          <div i-ant-design-bilibili-filled w-15 h-15 cursor-pointer lg:hover:translate-y--2 transition-all
+            @click="linkJump('https://space.bilibili.com/24738225')"></div>
+          <div i-ant-design-tik-tok-filled w-15 h-15 cursor-pointer lg:hover:translate-y--2 transition-all
+            @click="linkJump('https://v.douyin.com/i2yowJyy/')">
           </div>
         </div>
       </div>
