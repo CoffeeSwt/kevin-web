@@ -1,0 +1,48 @@
+[
+  {
+    "gameName": "Dayz",
+    "logo": "/gameLogo/Dayz.png",
+    "theme": [
+      {
+        "name": "最后的生还者",
+        "subName": "主题服务器",
+        "EngName": "The last of us",
+        "intro": "intro",
+        "creators": [
+          {
+            "name": "name",
+            "avator": "/avator",
+            "info": "info"
+          }
+        ],
+        "imgs": [
+          "/DAYZ/server.jpg",
+          "/DAYZ/server1.jpg",
+          "/DAYZ/server2.jpg",
+          "/DAYZ/server3.jpg",
+          "/DAYZ/server4.jpg",
+          "/DAYZ/server5.jpg"
+        ],
+        "serverName": "serverName",
+        "serverAddress": "serverAddress",
+        "lives": []
+      },
+      {
+        "name": "漫漫长夜",
+        "subName": "主题服务器",
+        "EngName": "The long dark",
+        "intro": "intro",
+        "creators": [
+          {
+            "name": "name",
+            "avator": "/avator",
+            "info": "info"
+          }
+        ],
+        "imgs": ["/imgs"],
+        "serverName": "serverName",
+        "serverAddress": "serverAddress"
+      }
+    ]
+  }
+]

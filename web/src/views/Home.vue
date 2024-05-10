@@ -26,7 +26,7 @@
   <!-- UP Detail Part-->
   <Transition name="leftfrom">
     <div v-if="upDetailShow" fixed rounded-lg drop-shadow-lg bg-gray-dark opacity-95
-      class="lg:w-60% h-30% w-70% h-70% top-1/2 left-1/2 translate-x--1/2 translate-y--1/2" z-9999 flex flex-col
+      class="lg:w-60% h-30% w-80% h-85% top-1/2 left-1/2 translate-x--1/2 translate-y--1/2" z-9999 flex flex-col
       items-center lg:p-8 p-4>
       <!-- phone up detail box -->
       <div lg:hidden flex-grow text-white-light w-full flex flex-col overflow-hidden antialiased tracking-widest>
@@ -438,7 +438,6 @@ type menuItem = {
   path: string
 }
 const menuList = ref<Array<menuItem>>(menuListjson)
-console.log(JSON.stringify(menuList.value))
 type artsItem = {
   index: number,
   name: string,
