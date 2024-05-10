@@ -1,5 +1,5 @@
 <template>
-    <div>1111</div>
+    <div bg-main-bg text-3xl h-screen color-white>建设中...</div>
 </template>
 
 <script setup lang="ts">

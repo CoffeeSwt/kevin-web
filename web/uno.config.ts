@@ -20,6 +20,12 @@ export default defineConfig({
       /^translate-y-full-(\d+(\.\d+)?)$/,
       (match) => ({ transform: `translateY(100%) translateY(${match[1]}rem)` }),
     ],
+    [
+      /^translate-y-full--(\d+(\.\d+)?)$/,
+      (match) => ({
+        transform: `translateY(100%) translateY(-${match[1]}rem)`,
+      }),
+    ],
     ["filter-blur", { filter: "blur(10px)" }],
     ["backdrop-blur", { "backdrop-blur": "blur(10px)" }],
     [/^min-h-screen-(\d+)$/, (match) => ({ "min-height": `${match[1]}vh` })],
@@ -43,6 +49,7 @@ export default defineConfig({
       "blue-bar": "#534afd",
       "blue-apple": "#0071e3",
       "gray-dark": "#333",
+      "bili-pink": "#fc8bab",
     },
   },
   presets: [

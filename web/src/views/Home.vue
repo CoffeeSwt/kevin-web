@@ -26,9 +26,12 @@
   <!-- UP Detail Part-->
   <Transition name="leftfrom">
     <div v-if="upDetailShow" fixed rounded-lg drop-shadow-lg bg-gray-dark opacity-95
-      class="w-80% h-60% top-1/2 left-1/2 translate-x--1/2 translate-y--1/2" z-9999 flex flex-col items-center>
+      class="lg:w-40% h-30% w-80% h-60% top-1/2 left-1/2 translate-x--1/2 translate-y--1/2" z-9999 flex flex-col
+      items-center p-8>
       <div flex-grow></div>
-      <div @click="upDetailShowChange" i-gg-close-o w-10 h-10 cursor-pointer></div>
+      <div @click="upDetailShowChange" i-gg-close-o w-10 h-10 cursor-pointer color-white-light hover:bg-light-black
+        transition-all></div>
+
     </div>
   </Transition>
 
@@ -41,8 +44,19 @@
         <img absolute class="lg:w-4/10 w-7/9" bottom-0 right--4 lg:right-16 src="/imgs/25601440.png" alt="">
         <div absolute class="lg:w-1/3 w-6/9" top-18 left-4 lg:left-16>
           <img w-full src="/imgs/DL改版-FILM.png" alt="">
-          <div absolute w-20 h-10 bottom-0 text-base translate-y-full-0.2 rounded-3xl text-blue-apple
-            @click="upDetailShowChange" cursor-pointer lg:text-xl lg:w-24>了解凯文</div>
+          <div w-23 lg:h-10 h-8 bottom-0 text-base rounded-3xl text-blue-apple @click="upDetailShowChange"
+            cursor-pointer lg:text-xl lg:w-30 flex items-center bg-light-black justify-center mt-2 hover:scale-90
+            transition-all>
+            <div i-ic-outline-add-circle-outline w-4 h-4 lg:h-6 lg:w-6></div>
+            <div text-xs lg:text-base>了解凯文</div>
+          </div>
+          <div flex>
+            <div i-ant-design-bilibili-filled w-15 h-15 lg:translate-y-full translate-y-full-9 cursor-pointer
+              hover:translate-y-full--0.4 transition-all @click="linkJump('https://space.bilibili.com/24738225')"></div>
+            <div i-ant-design-tik-tok-filled w-15 h-15 lg:translate-y-full cursor-pointer hover:translate-y-full--0.4
+              translate-y-full-9 transition-all @click="linkJump('https://v.douyin.com/i2yowJyy/')">
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -109,7 +123,32 @@
         <div mb-4 text-3xl>联系我们</div>
         <div h-8></div>
         <div w-full>
-          11111联系我们11111联系我们11111联系我们11111联系我们11111联系我们11111联系我们
+          <!-- 广告与植入 -->
+          <div w-full>
+            <div text-xl>广告与植入</div>
+            <div class="w-full" my-2>
+              围绕用户、创作者和内容，B站构建了一个源源不断产生优质内容的生态系统。中国最优秀的专业创作者都聚集在B站创作内容，涵盖生活、游戏、时尚、知识、音乐等数千个品类和圈层，引领着流行文化的风潮，成为中文互联网极其独特的存在。目前，B站94%的视频播放量都来自于专业用户创作的视频（Professional
+              User Generated Video，PUGV）。
+            </div>
+          </div>
+          <div h-8></div>
+          <!-- 粉丝群 -->
+          <div w-full>
+            <div text-xl>粉丝群</div>
+            <div class="w-full" my-2>
+              围绕用户、创作者和内容，B站构建了一个源源不断产生优质内容的生态系统。中国最优秀的专业创作者都聚集在B站创作内容，涵盖生活、游戏、时尚、知识、音乐等数千个品类和圈层，引领着流行文化的风潮，成为中文互联网极其独特的存在。目前，B站94%的视频播放量都来自于专业用户创作的视频（Professional
+              User Generated Video，PUGV）。
+            </div>
+          </div>
+          <div h-8></div>
+          <!-- 媒体平台 -->
+          <div w-full flex mb-10>
+            <div i-ant-design-bilibili-filled w-15 h-15 @click="linkJump('https://space.bilibili.com/24738225')"
+              cursor-pointer></div>
+            <div i-ant-design-tik-tok-filled w-15 h-15 cursor-pointer
+              @click="linkJump('https://v.douyin.com/i2yowJyy/')">
+            </div>
+          </div>
         </div>
       </section>
     </section>
@@ -141,8 +180,8 @@
                 </div>
               </template>
             </section>
-            <div @click="addPage" cursor-pointer hover:bg-gray-8 w-8 h-20 ml-2 transition-all border-2 border-gray-7
-              border-solid rounded text-sm flex-center flex-wrap p-2>
+            <div @click="addPage" cursor-pointer hover:bg-black-l-1 w-8 h-20 ml-2 transition-all border-2
+              border-light-black border-solid rounded text-sm flex-center flex-wrap p-2>
               <div class="i-mingcute-refresh-3-line" w-5 h-5></div>
               <div>下</div>
               <div>一</div>
@@ -152,7 +191,7 @@
         </div>
       </section>
 
-      <section ref="section-playtogether-pc" w-full hidden lg:block>
+      <section ref="section-playtogether-pc" w-full hidden lg:block lg:mt-8>
         <div h-10></div>
         <div mb-4 text-3xl>一起玩游戏</div>
         <div flex flex-wrapg gap-6>
@@ -163,10 +202,10 @@
       </section>
 
       <!-- sponsor section -->
-      <section ref="section-cards-pc" w-full>
+      <section ref="section-cards-pc" w-full lg:mt-8>
         <div h-10></div>
         <div mb-8 text-3xl>特别鸣谢</div>
-        <div w-full flex gap-12>
+        <div w-full flex gap-12 flex-wrap>
           <template v-for="i in sponsors">
             <div w-50 flex flex-col items-center aspect-43 bg-black-l-1 p-8 rounded-2xl pt-12 hover:translate-y--5
               transition-all>
@@ -184,15 +223,38 @@
         </div>
       </section>
 
-      <section ref="section-contact-pc" w-full min-h-screen-50>
+      <section ref="section-contact-pc" w-full min-h-screen-50 mt-8>
         <div h-10></div>
-        <div mb-4 text-3xl>联系我们</div>
-        <div h-8></div>
+        <div mb-12 text-3xl>联系我们</div>
         <div w-full>
-          11111联系我们11111联系我们11111联系我们11111联系我们11111联系我们11111联系我们
+          <!-- 广告与植入 -->
+          <div w-full>
+            <div text-xl>广告与植入</div>
+            <div class="w-2/5" my-2>
+              围绕用户、创作者和内容，B站构建了一个源源不断产生优质内容的生态系统。中国最优秀的专业创作者都聚集在B站创作内容，涵盖生活、游戏、时尚、知识、音乐等数千个品类和圈层，引领着流行文化的风潮，成为中文互联网极其独特的存在。目前，B站94%的视频播放量都来自于专业用户创作的视频（Professional
+              User Generated Video，PUGV）。
+            </div>
+          </div>
+          <div h-8></div>
+          <!-- 粉丝群 -->
+          <div w-full>
+            <div text-xl>粉丝群</div>
+            <div class="w-2/5" my-2>
+              围绕用户、创作者和内容，B站构建了一个源源不断产生优质内容的生态系统。中国最优秀的专业创作者都聚集在B站创作内容，涵盖生活、游戏、时尚、知识、音乐等数千个品类和圈层，引领着流行文化的风潮，成为中文互联网极其独特的存在。目前，B站94%的视频播放量都来自于专业用户创作的视频（Professional
+              User Generated Video，PUGV）。
+            </div>
+          </div>
+          <div h-8></div>
+          <!-- 媒体平台 -->
+          <div w-full flex mb-10>
+            <div i-ant-design-bilibili-filled w-15 h-15 @click="linkJump('https://space.bilibili.com/24738225')"
+              cursor-pointer></div>
+            <div i-ant-design-tik-tok-filled w-15 h-15 cursor-pointer
+              @click="linkJump('https://v.douyin.com/i2yowJyy/')">
+            </div>
+          </div>
         </div>
       </section>
-
     </section>
   </div>
 </template>
@@ -231,6 +293,9 @@ const changeMenu = () => {
 const heroClickHandler = (item: artsItem) => {
   const link = item.link
   if (!link) return
+  linkJump(link)
+}
+const linkJump = (link: string) => {
   window.open(link)
 }
 
