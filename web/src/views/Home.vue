@@ -1,21 +1,22 @@
 <template>
   <!-- Head Fixd Part -->
-  <div fixed top-0 left-0 z-999 w-full bg-main-bg color-white :class="{ 'h-full': menuOpen, blur: upDetailShow }"
+  <div @click="handleWrapperClick" fixed top-0 left-0 z-999 w-full bg-main-bg color-white :class="{ 'h-full': menuOpen, blur: upDetailShow }"
     transition-all>
     <div w-full h-10 lg:flex gap-6 items-center justify-end px-4 box-border hidden>
       <template v-for="item in menuList">
-        <div @click="menuClickHandle(item)" text-sm cursor-pointer hover:bg-light-black w-20 h-10 flex-center
+        <div @click.stop="menuClickHandle(item)" text-sm cursor-pointer hover:bg-light-black w-20 h-10 flex-center
           transition-all>{{ item.name }}</div>
       </template>
     </div>
-    <div @click="changeMenu" flex flex-col px-4 py-4 lg:hidden>
+    <div @click.stop="changeMenu" flex flex-col px-4 py-4 lg:hidden>
       <div v-show="!menuOpen" self-start w-10 h-10 class="i-humbleicons-bars" />
       <div v-show="menuOpen" self-start w-10 h-10 class="i-humbleicons-times" />
     </div>
     <Transition name="pack_up">
       <ul v-show="menuOpen" px-2 list-none flex flex-col gap-4 my-0 lg:hidden>
         <template v-for="item in menuList">
-          <li @click="menuClickHandle(item, true)" block rounded-lg px-4 py-2 text-4xl font-bold flex justify-start>
+          <li @click.stop="menuClickHandle(item, true)" block rounded-lg px-4 py-2 text-4xl font-bold flex
+            justify-start>
             <span inline-block>{{ item.name }}</span>
           </li>
         </template>
@@ -39,12 +40,13 @@
           <div text-4xl font-medium>凯文</div>
           <div text-xs flex items-center flex-col>
             <div text-xs flex items-center gap-1 cursor-pointer
-              @click="linkJump('https://space.bilibili.com/24738225')">
+              @click.stop="linkJump('https://space.bilibili.com/24738225')">
               <div i-ant-design-bilibili-filled w-5 h-5>
               </div>
               <div font-light>凯文不是大叔</div>
             </div>
-            <div text-xs flex items-center gap-1 cursor-pointer @click="linkJump('https://v.douyin.com/i2yowJyy/')">
+            <div text-xs flex items-center gap-1 cursor-pointer
+              @click.stop="linkJump('https://v.douyin.com/i2yowJyy/')">
               <div i-ant-design-tik-tok-filled w-5 h-5>
               </div>
               <div font-light>凯文是男同学</div>
@@ -88,18 +90,18 @@
           <div flex flex-col items-start>
             <div text-5xl mb-2 flex justify-between w-full>
               <div font-bold>凯文</div>
-              <div @click="upDetailShowChange" i-gg-close-o size-12 cursor-pointer color-white-light
+              <div @click.stop="upDetailShowChange" i-gg-close-o size-12 cursor-pointer color-white-light
                 hover:bg-light-black transition-all flex-shrink-0></div>
             </div>
             <div text-2xl flex items-center flex-col font-normal>
               <div flex items-center gap-1 cursor-pointer hover:translate-x-2 transition-all
-                @click="linkJump('https://space.bilibili.com/24738225')">
+                @click.stop="linkJump('https://space.bilibili.com/24738225')">
                 <div i-ant-design-bilibili-filled size-8>
                 </div>
                 <div>凯文不是大叔</div>
               </div>
               <div flex items-center gap-1 cursor-pointer hover:translate-x-2 transition-all
-                @click="linkJump('https://v.douyin.com/i2yowJyy/')">
+                @click.stop="linkJump('https://v.douyin.com/i2yowJyy/')">
                 <div i-ant-design-tik-tok-filled size-8>
                 </div>
                 <div>凯文是男同学</div>
@@ -138,21 +140,21 @@
 
       <!-- footer -->
       <div h-2 flex-shrink-0></div>
-      <div @click="upDetailShowChange" lg:hidden i-gg-close-o size-10 cursor-pointer color-white-light
+      <div @click.stop="upDetailShowChange" lg:hidden i-gg-close-o size-10 cursor-pointer color-white-light
         hover:bg-light-black transition-all flex-shrink-0></div>
     </div>
   </Transition>
 
   <!-- wrapper part -->
-  <div ref='scrollWrapperRef' bg-main-bg color-white w-full antialiased tracking-widest snap-y h-screen overflow-auto
-    snap-mandatory scroll-smooth :class="{ 'overflow-hidden': upDetailShow }">
+  <div @click="handleWrapperClick" ref='scrollWrapperRef' bg-main-bg color-white w-full antialiased tracking-widest
+    snap-y h-screen overflow-auto snap-mandatory scroll-smooth :class="{ 'overflow-hidden': upDetailShow }">
     <!-- Hero Section scroll -->
     <section ref="section-hero" w-full h-screen snap-start :class="{ blur: upDetailShow }" transition-all>
       <div overflow-hidden relative size-full>
         <img absolute class="lg:w-4/10 w-7/9" bottom-0 right--4 lg:right-16 src="/imgs/25601440.png" alt="">
         <div absolute class="lg:w-1/3 w-6/9" top-18 left-4 lg:left-16>
           <img w-full src="/imgs/DL改版-FILM.png" alt="">
-          <div w-23 lg:h-10 h-8 bottom-0 text-base rounded-3xl text-blue-apple @click="upDetailShowChange"
+          <div w-23 lg:h-10 h-8 bottom-0 text-base rounded-3xl text-blue-apple @click.stop="upDetailShowChange"
             cursor-pointer lg:text-xl lg:w-30 flex items-center bg-light-black justify-center mt-2 hover:scale-90
             transition-all>
             <div i-ic-outline-add-circle-outline w-4 h-4 lg:h-6 lg:w-6></div>
@@ -161,9 +163,9 @@
         </div>
         <div flex absolute lg:left-16 left-4 bottom-8>
           <div i-ant-design-bilibili-filled w-15 h-15 cursor-pointer lg:hover:translate-y--2 transition-all
-            @click="linkJump('https://space.bilibili.com/24738225')"></div>
+            @click.stop="linkJump('https://space.bilibili.com/24738225')"></div>
           <div i-ant-design-tik-tok-filled w-15 h-15 cursor-pointer lg:hover:translate-y--2 transition-all
-            @click="linkJump('https://v.douyin.com/i2yowJyy/')">
+            @click.stop="linkJump('https://v.douyin.com/i2yowJyy/')">
           </div>
         </div>
       </div>
@@ -174,7 +176,7 @@
       <section ref="section-arts" w-full flex flex-col items-center>
         <div h-18 flex-shrink-0></div>
         <div self-start mb-4 text-3xl flex-shrink-0 font-bold>正在更新</div>
-        <div w-full @click=heroClickHandler(picList.updataing!)>
+        <div w-full @click.stop=heroClickHandler(picList.updataing!)>
           <section overflow-hidden aspect-video rounded-lg mb-1.5>
             <img size-full :src="picList.updataing?.url" alt="">
           </section>
@@ -187,7 +189,8 @@
         <div self-start my-4 text-3xl font-bold>往期作品</div>
         <section w-full flex box-border snap-x snap-proximity overflow-x-scroll overflow-y-hidden flex-grow-1>
           <template v-for="i in picList.thePast">
-            <div @click=heroClickHandler(i) snap-start class="w-3/4 " flex-grow-0 flex-shrink-0 pr-2 box-border h-auto>
+            <div @click.stop=heroClickHandler(i) snap-start class="w-3/4 " flex-grow-0 flex-shrink-0 pr-2 box-border
+              h-auto>
               <img box-border w-full aspect-video rounded-lg :src="i.url" alt="">
               <div box-border text-xs text-gray w-16 h-3 mt-0.5 font-extraLight>{{ i.tag }}</div>
               <div box-border text-sm w-full mt-0.5 font-regular>{{ i.name }}</div>
@@ -251,10 +254,10 @@
           <div h-8></div>
           <!-- 媒体平台 -->
           <div w-full flex mb-10>
-            <div i-ant-design-bilibili-filled w-15 h-15 @click="linkJump('https://space.bilibili.com/24738225')"
+            <div i-ant-design-bilibili-filled w-15 h-15 @click.stop="linkJump('https://space.bilibili.com/24738225')"
               cursor-pointer></div>
             <div i-ant-design-tik-tok-filled w-15 h-15 cursor-pointer
-              @click="linkJump('https://v.douyin.com/i2yowJyy/')">
+              @click.stop="linkJump('https://v.douyin.com/i2yowJyy/')">
             </div>
           </div>
         </div>
@@ -266,7 +269,7 @@
       <section ref="section-arts-pc" w-full pt-10 flex gap-8 text-3xl>
         <div class="w-2/5">
           <div mb-4 font-heavy>正在更新</div>
-          <div w-full cursor-pointer @click=heroClickHandler(picList.updataing!) flex flex-col>
+          <div w-full cursor-pointer @click.stop=heroClickHandler(picList.updataing!) flex flex-col>
             <section w-full aspect-video mb-1>
               <img w-full rounded-lg :src="picList.updataing?.url" alt="">
             </section>
@@ -279,7 +282,7 @@
           <div flex flex-grow-1>
             <section w-full flex-grow-1 grid grid-cols-3 gap-4 content-between>
               <template v-for="i in currenSixPast">
-                <div w-full @click=heroClickHandler(i) cursor-pointer>
+                <div w-full @click.stop=heroClickHandler(i) cursor-pointer>
                   <div w-full aspect-video mb-1>
                     <img size-full rounded-lg :src="i.url" alt="">
                   </div>
@@ -288,7 +291,7 @@
                 </div>
               </template>
             </section>
-            <div @click="addPage" cursor-pointer hover:bg-black-l-1 w-8 h-20 ml-2 transition-all border-2
+            <div @click.stop="addPage" cursor-pointer hover:bg-black-l-1 w-8 h-20 ml-2 transition-all border-2
               border-light-black border-solid rounded text-sm flex-center flex-wrap p-2>
               <div class="i-mingcute-refresh-3-line" w-5 h-5></div>
               <div>下</div>
@@ -355,11 +358,11 @@
           <div h-8></div>
           <!-- 媒体平台 -->
           <div w-full flex mb-10>
-            <div i-ant-design-bilibili-filled w-15 h-15 @click="linkJump('https://space.bilibili.com/24738225')"
+            <div i-ant-design-bilibili-filled w-15 h-15 @click.stop="linkJump('https://space.bilibili.com/24738225')"
               cursor-pointer>
             </div>
             <div i-ant-design-tik-tok-filled w-15 h-15 cursor-pointer
-              @click="linkJump('https://v.douyin.com/i2yowJyy/')">
+              @click.stop="linkJump('https://v.douyin.com/i2yowJyy/')">
             </div>
           </div>
         </div>
@@ -376,6 +379,10 @@ import sponsorsjson from '@/assets/examplejson/sponsors.json'
 import { GameCardInfo } from '@/types/common'
 import { chunkArray } from '@/utils/math'
 import GameCard from '@/components/GameCard.vue'
+const handleWrapperClick = () => {
+  if (upDetailShow.value)
+    upDetailShow.value = false
+}
 const upDetailShow = ref(false)
 const upDetailShowChange = () => {
   upDetailShow.value = !upDetailShow.value

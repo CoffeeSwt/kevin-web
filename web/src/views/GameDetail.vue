@@ -9,7 +9,7 @@
             </div>
             <!-- theme name -->
             <div flex>
-                <template v-for="(theme, index) in game.theme">
+                <template v-for="(theme) in game.theme">
                     <div>
                         <div>{{ theme.name }}</div>
                         <div>{{ theme.subName }}</div>
@@ -77,9 +77,9 @@ import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
 
 // init Swiper:
-let swiper
+
 onMounted(() => {
-    swiper = new Swiper('.swiper', {
+    new Swiper('.swiper', {
         // Optional parameters
         direction: 'horizontal',
         loop: true,
