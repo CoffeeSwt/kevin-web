@@ -8,11 +8,16 @@
                 <img h-full :src="game.logo" alt="">
             </div>
             <!-- theme name -->
-            <div flex>
-                <template v-for="(theme) in game.theme">
-                    <div>
-                        <div>{{ theme.name }}</div>
-                        <div>{{ theme.subName }}</div>
+            <div flex gap-4 my-4>
+                <template v-for="(theme, index) in game.theme">
+                    <div text-deep-gray bg-black-l-1 p-2 rounded-lg tracking-widest min-w-35
+                        :class="{ 'theme-high-light': currentThemeIndex == index }" @click="handleThemeChange(index)">
+                        <div text-xl>
+                            {{ theme.name }}
+                        </div>
+                        <div text-sm>
+                            {{ theme.subName }}
+                        </div>
                     </div>
                 </template>
             </div>
@@ -39,6 +44,17 @@
                     <!-- If we need scrollbar -->
                     <div class="swiper-scrollbar"></div>
                 </div>
+            </div>
+            <div w-full overflow-hidden mt-2>
+                <div w-full overflow-x-auto overflow-y-hidden flex gap-1>
+                    <template v-for="(img, index) in currentTheme.imgs">
+                        <div :class="{ 'high-light': currentPicIndex == index }" h-16 aspect-video
+                            @click="picClickHandler(index)">
+                            <img size-full :src="img" alt="">
+                        </div>
+                    </template>
+                </div>
+
             </div>
 
             <!-- custom theme parts change -->
@@ -77,44 +93,68 @@ import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
 
 // init Swiper:
+let swpier: Swiper
+const currentPicIndex = ref(0)
+const picClickHandler = (index: number) => {
+    swpier.slideTo(index, 300, true);//切换到第一个slide，速度为1秒
+}
 
-onMounted(() => {
-    new Swiper('.swiper', {
-        // Optional parameters
-        direction: 'horizontal',
-        loop: true,
-        autoplay: true,
-
-        // If we need pagination
-        pagination: {
-            el: '.swiper-pagination',
-        },
-
-        // Navigation arrows
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-
-        // And if we need scrollbar
-        scrollbar: {
-            el: '.swiper-scrollbar',
-        },
-    });
-})
-
-
+const handleThemeChange = (themeIndex: number) => {
+    currentThemeIndex.value = themeIndex
+}
 
 const router = useRouter()
 const name = router.currentRoute.value.query.name
-
-
-
 
 const show = ref(name == 'Dayz')
 const game = gameInfoJson.filter(game => game.gameName == name)?.[0]
 const currentThemeIndex = ref(0)
 const currentTheme = computed(() => game.theme[currentThemeIndex.value])
+const init = () => {
+    swpier = new Swiper('.swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+        // autoplay: true,
+        // If we need pagination
+        // pagination: {
+        //     el: '.swiper-pagination',
+        // },
+
+        // Navigation arrows
+        // navigation: {
+        //     nextEl: '.swiper-button-next',
+        //     prevEl: '.swiper-button-prev',
+        // },
+
+        // And if we need scrollbar
+        // scrollbar: {
+        //     el: '.swiper-scrollbar',
+        // },
+
+        on: {
+            slideChangeTransitionStart: function () {
+                //@ts-ignore
+                currentPicIndex.value = this.activeIndex
+            },
+        },
+    });
+}
+
+onMounted(() => {
+    init()
+})
 </script>
 
-<style scoped></style>
+<style scoped>
+.high-light {
+    border: 1px solid white
+}
+
+.theme-high-light {
+    color: #fff;
+    background-color: #333;
+    transition: all linear .2s;
+    font-family: "思源黑体 Heavy";
+}
+</style>

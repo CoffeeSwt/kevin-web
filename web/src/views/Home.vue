@@ -189,13 +189,13 @@
         <div h-8></div>
         <div w-full>
           <!-- 广告与植入 -->
-          <div w-full>
+          <!-- <div w-full>
             <div text-xl font-medium>广告与植入</div>
             <div class="w-full" my-2>
               围绕用户、创作者和内容，B站构建了一个源源不断产生优质内容的生态系统。中国最优秀的专业创作者都聚集在B站创作内容，涵盖生活、游戏、时尚、知识、音乐等数千个品类和圈层，引领着流行文化的风潮，成为中文互联网极其独特的存在。目前，B站94%的视频播放量都来自于专业用户创作的视频（Professional
               User Generated Video，PUGV）。
             </div>
-          </div>
+          </div> -->
           <div h-8></div>
           <!-- 粉丝群 -->
           <div w-full>

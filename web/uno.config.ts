@@ -57,6 +57,7 @@ export default defineConfig({
       "blue-apple": "#0071e3",
       "gray-dark": "#333",
       "bili-pink": "#fc8bab",
+      "deep-gray": "#666",
     },
   },
   presets: [

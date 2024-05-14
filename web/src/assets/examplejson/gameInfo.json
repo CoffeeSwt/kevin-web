@@ -39,7 +39,9 @@
             "info": "info"
           }
         ],
-        "imgs": ["/imgs"],
+        "imgs": [
+          
+        ],
         "serverName": "serverName",
         "serverAddress": "serverAddress"
       }
