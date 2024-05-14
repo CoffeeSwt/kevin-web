@@ -1,16 +1,16 @@
 <template>
-    <div v-if="!show" bg-main-bg h-screen color-white text-3xl>建设中...</div>
-    <div v-else bg-main-bg h-screen color-white overflow-scroll>
+    <div ref="scrollWrapperRef" bg-main-bg h-screen color-white overflow-hidden tracking-widest>
+        <div v-if="!show"></div>
         <!-- Phone Mode -->
-        <div p-4>
+        <div v-if="!lgMode" p-4 h-full overflow-hidden flex flex-col box-border>
             <!-- logo -->
-            <div h-16>
+            <div h-16 flex-shrink-0>
                 <img h-full :src="game.logo" alt="">
             </div>
             <!-- theme name -->
-            <div flex gap-4 my-4>
+            <div flex gap-4 my-4 flex-shrink-0>
                 <template v-for="(theme, index) in game.theme">
-                    <div text-deep-gray bg-black-l-1 p-2 rounded-lg tracking-widest min-w-35
+                    <div text-deep-gray bg-black-l-1 p-2 rounded-lg class="min-w-1/3"
                         :class="{ 'theme-high-light': currentThemeIndex == index }" @click="handleThemeChange(index)">
                         <div text-xl>
                             {{ theme.name }}
@@ -22,14 +22,14 @@
                 </template>
             </div>
             <!-- imgs -->
-            <div w-full aspect-video>
+            <div w-full aspect-video flex-shrink-0>
                 <!-- Slider main container -->
                 <div class="swiper" size-full>
                     <!-- Additional required wrapper -->
                     <div class="swiper-wrapper" size-full>
                         <!-- Slides -->
                         <template v-for="img in currentTheme.imgs">
-                            <div class="swiper-slide">
+                            <div class="swiper-slide" rounded-lg overflow-hidden>
                                 <img size-full :src="img" alt="">
                             </div>
                         </template>
@@ -45,12 +45,12 @@
                     <div class="swiper-scrollbar"></div>
                 </div>
             </div>
-            <div w-full overflow-hidden mt-2>
+            <div w-full overflow-hidden mt-2 flex-shrink-0>
                 <div w-full overflow-x-auto overflow-y-hidden flex gap-1>
                     <template v-for="(img, index) in currentTheme.imgs">
-                        <div :class="{ 'high-light': currentPicIndex == index }" h-16 aspect-video
+                        <div :class="{ 'high-light': currentPicIndex == index }" h-14 aspect-video rounded-lg box-border
                             @click="picClickHandler(index)">
-                            <img size-full :src="img" alt="">
+                            <img size-full rounded-lg :src="img" alt="">
                         </div>
                     </template>
                 </div>
@@ -58,26 +58,43 @@
             </div>
 
             <!-- custom theme parts change -->
-            <div>
-                <!-- role change buttons group -->
-                <div>
-                    <div>role1</div>
+            <div text-white flex-grow-1 w-full flex flex-col box-border overflow-hidden mt-4>
+                <!-- menu part -->
+                <div flex gap-2 flex-shrink-0 w-full>
+                    <template v-for="(tag, index) in currentTheme.tags">
+                        <div :class="{ 'active-tag': currentThemeTagIndex == index }" p-1
+                            @click="changCurrentThemeTagIndex(index)" rounded-t-lg>{{ tag.cnName }}
+                        </div>
+                    </template>
                 </div>
-                <!-- intro part -->
-                <div>
-
-                </div>
-                <!-- creators -->
-                <div>
-
-                </div>
-                <!-- lives -->
-                <div>
-
+                <!-- content part -->
+                <div flex-grow-1 w-full overflow-y-hidden box-border class="active-tag" flex flex-col>
+                    <div h-2 flex-shrink-0></div>
+                    <!-- text type -->
+                    <div v-if="!tagContent.ifArrayContent" w-full box-border flex-grow-1 overflow-y-auto
+                        whitespace-pre-wrap>
+                        {{ tagContent.content }}
+                    </div>
+                    <!-- array type -->
+                    <div v-else w-full box-border flex-grow-1 overflow-y-auto whitespace-pre-wrap>
+                        <div v-if="tagContent.name == 'creators'" flex w-full flex-wrap>
+                            <template v-for="creator in (tagContent.content as Array<{
+                                name: string;
+                                avator: string;
+                                info: string;
+                            }>) ">
+                                <div class="w-full" flex flex-col items-center mb-8>
+                                    <div size-10 mb-2>
+                                        <img size-full rounded-full :src="creator.avator" alt="">
+                                    </div>
+                                    <div text-base mb-1>{{ creator.name }}</div>
+                                    <div text-xs>{{ creator.info }}</div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 </template>
@@ -110,11 +127,34 @@ const show = ref(name == 'Dayz')
 const game = gameInfoJson.filter(game => game.gameName == name)?.[0]
 const currentThemeIndex = ref(0)
 const currentTheme = computed(() => game.theme[currentThemeIndex.value])
+
+const currentThemeTagIndex = ref(0)
+const changCurrentThemeTagIndex = (index: number) => {
+    currentThemeTagIndex.value = index
+}
+const tagContent = computed(() => {
+    const currentThemeTag = currentTheme.value.tags![currentThemeTagIndex.value]
+    return {
+        ifArrayContent: currentThemeTag.content instanceof Array,
+        ...currentThemeTag
+    }
+})
+const scrollWrapperRef = ref<null | HTMLDivElement>(null)
+let resizeObserver;
+const innerWidth = ref(0);
+const lgMode = computed(() => innerWidth.value >= 1024)
+
 const init = () => {
+    resizeObserver = new ResizeObserver(entries => {
+        for (const entry of entries) {
+            innerWidth.value = entry.contentRect.width;
+        }
+    });
+    resizeObserver.observe(scrollWrapperRef.value!);
     swpier = new Swiper('.swiper', {
         // Optional parameters
         direction: 'horizontal',
-        loop: true,
+        loop: false,
         // autoplay: true,
         // If we need pagination
         // pagination: {
@@ -147,8 +187,13 @@ onMounted(() => {
 </script>
 
 <style scoped>
+section::-webkit-scrollbar,
+div::-webkit-scrollbar {
+    display: none;
+}
+
 .high-light {
-    border: 1px solid white
+    border: 1px solid #333
 }
 
 .theme-high-light {
@@ -156,5 +201,9 @@ onMounted(() => {
     background-color: #333;
     transition: all linear .2s;
     font-family: "思源黑体 Heavy";
+}
+
+.active-tag {
+    background-color: #111;
 }
 </style>
