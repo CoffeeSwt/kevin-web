@@ -12,13 +12,13 @@ import {
 
 export default defineConfig({
   rules: [
-    ["font-extraLight", { "font-family": "思源黑体 ExtraLight" }],
-    ["font-light", { "font-family": "思源黑体 Light" }],
-    ["font-normal", { "font-family": "思源黑体 Normal" }],
-    ["font-regular", { "font-family": "思源黑体 Regular" }],
-    ["font-medium", { "font-family": "思源黑体 Medium" }],
-    ["font-bold", { "font-family": "思源黑体 Bold" }],
-    ["font-heavy", { "font-family": "思源黑体 Heavy" }],
+    ["font-extraLight", { "font-family": "Source Han Sans SC ExtraLight" }],
+    ["font-light", { "font-family": "Source Han Sans SC Light" }],
+    ["font-normal", { "font-family": "Source Han Sans SC Normal" }],
+    ["font-regular", { "font-family": "Source Han Sans SC" }],
+    ["font-medium", { "font-family": "Source Han Sans SC Medium" }],
+    ["font-bold", { "font-family": "Source Han Sans SC Bold" }],
+    ["font-heavy", { "font-family": "Source Han Sans SC Heavy" }],
     ["flex-basis-auto", { "flex-basis": "auto" }],
     ["aspect-43", { "aspect-ratio": "3 / 4" }],
     ["translate-x--full", { transform: "translateX(-100%)" }],

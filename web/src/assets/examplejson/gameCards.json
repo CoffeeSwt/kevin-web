@@ -1,22 +1,22 @@
 [
   {
-    "name": "七日杀服务器",
-    "picSrc": "/imgs/7DTD.png",
-    "picSrcPhone": "/imgs/7DTD1.png",
-    "info": "",
-    "routerLink": "/gameDetail?name=七日杀"
-  },
-  {
     "name": "Dayz服务器",
-    "picSrc": "/imgs/DAYZ.png",
-    "picSrcPhone": "/imgs/DAYZ1.png",
+    "picSrc": "https://ik.imagekit.io/coffeeswt/public/imgs/DAYZ.png?updatedAt=1716801245493",
+    "picSrcPhone": "https://ik.imagekit.io/coffeeswt/public/imgs/DAYZ1.png?updatedAt=1716801246710",
     "info": "",
     "routerLink": "/gameDetail?name=Dayz"
   },
   {
+    "name": "七日杀服务器",
+    "picSrc": "https://ik.imagekit.io/coffeeswt/public/imgs/7DTD.png?updatedAt=1716801240167",
+    "picSrcPhone": "https://ik.imagekit.io/coffeeswt/public/imgs/7DTD1.png?updatedAt=1716801239879",
+    "info": "",
+    "routerLink": "/gameDetail?name=七日杀"
+  },
+  {
     "name": "僵尸毁灭工程服务器",
-    "picSrc": "/imgs/JSHMGC.png",
-    "picSrcPhone": "/imgs/JSHMGC1.png",
+    "picSrc": "https://ik.imagekit.io/coffeeswt/public/imgs/JSHMGC.png?updatedAt=1716801248107",
+    "picSrcPhone": "https://ik.imagekit.io/coffeeswt/public/imgs/JSHMGC1.png?updatedAt=1716801249912",
     "info": "",
     "routerLink": "/gameDetail?name=僵尸毁灭工程"
   }

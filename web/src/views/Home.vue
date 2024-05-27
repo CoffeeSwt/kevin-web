@@ -33,7 +33,7 @@
       <div lg:hidden flex-grow text-white-light w-full flex flex-col overflow-hidden antialiased tracking-widest>
         <div flex-center flex-shrink-0 w-full>
           <div class="w-full" aspect-square>
-            <img size-full rounded-lg src="/avator/kevin.jpg" alt="">
+            <img size-full rounded-lg src="https://ik.imagekit.io/coffeeswt/public/avator/kevin.jpg?updatedAt=1716801259597" alt="">
           </div>
         </div>
         <div flex justify-between items-center>
@@ -61,7 +61,7 @@
       <!-- pc up detail box -->
       <div hidden flex-grow text-white-light w-full lg:flex gap-6 overflow-hidden antialiased tracking-widest h-full>
         <div flex-shrink-0>
-          <img h-full rounded-lg src="/avator/kevin1.jpg" alt="">
+          <img h-full rounded-lg src="https://ik.imagekit.io/coffeeswt/public/avator/kevin1.jpg?updatedAt=1716801260429" alt="">
         </div>
         <div flex-grow-1 overflow-hidden h-full flex flex-col>
           <div flex flex-col items-start>
@@ -105,9 +105,9 @@
     <!-- Hero Section scroll -->
     <section ref="section-hero" w-full h-screen snap-start :class="{ blur: upDetailShow }" transition-all>
       <div overflow-hidden relative size-full>
-        <img absolute class="lg:w-4/10 w-7/9" bottom-0 right--4 lg:right-16 src="/imgs/25601440.png" alt="">
+        <img absolute class="lg:w-4/10 w-7/9" bottom-0 right--4 lg:right-16 src="https://ik.imagekit.io/coffeeswt/public/imgs/25601440.png?updatedAt=1716801234688" alt="">
         <div absolute class="lg:w-1/3 w-6/9" top-18 left-4 lg:left-16>
-          <img w-full src="/imgs/DL改版-FILM.png" alt="">
+          <img w-full src="https://ik.imagekit.io/coffeeswt/public/imgs/DL%E6%94%B9%E7%89%88-FILM.png?updatedAt=1716801247331" alt="">
           <div w-23 lg:h-10 h-8 bottom-0 text-base rounded-3xl text-blue-apple @click.stop="upDetailShowChange"
             cursor-pointer lg:text-xl lg:w-30 flex items-center bg-light-black justify-center mt-2 hover:scale-90
             transition-all>

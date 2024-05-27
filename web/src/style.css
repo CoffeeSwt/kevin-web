@@ -1,3 +1,11 @@
+@import url("https://ik.imagekit.io/coffeeswt/SourceHanSansSC/SourceHanSansSC-Regular/result.css?updatedAt=1716798565702");
+@import url("https://ik.imagekit.io/coffeeswt/SourceHanSansSC/SourceHanSansSC-Normal/result.css?updatedAt=1716798458119");
+@import url("https://ik.imagekit.io/coffeeswt/SourceHanSansSC/SourceHanSansSC-Medium/result.css?updatedAt=1716798342815");
+@import url("https://ik.imagekit.io/coffeeswt/SourceHanSansSC/SourceHanSansSC-Light/result.css?updatedAt=1716798219118");
+@import url("https://ik.imagekit.io/coffeeswt/SourceHanSansSC/SourceHanSansSC-Heavy/result.css?updatedAt=1716798092251");
+@import url("https://ik.imagekit.io/coffeeswt/SourceHanSansSC/SourceHanSansSC-ExtraLight/result.css?updatedAt=1716797955829");
+@import url("https://ik.imagekit.io/coffeeswt/SourceHanSansSC/SourceHanSansSC-Bold/result.css?updatedAt=1716799859020");
+
 body {
   margin: 0;
   padding: 0;
@@ -13,81 +21,4 @@ body {
 
 :root {
   max-height: 9999999999px;
-}
-
-/* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
-@font-face {
-  font-family: "思源黑体 ExtraLight";
-  font-weight: 250;
-  src: url("//at.alicdn.com/wf/webfont/BXqct76kzCAK/Q2R7XxIc4dLz.woff2")
-      format("woff2"),
-    url("//at.alicdn.com/wf/webfont/BXqct76kzCAK/e27tB22TmexV.woff")
-      format("woff");
-  font-display: swap;
-}
-
-/* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
-@font-face {
-  font-family: "思源黑体 Light";
-  font-weight: 300;
-  src: url("//at.alicdn.com/wf/webfont/BXqct76kzCAK/q5DFo2UWgJD6.woff2")
-      format("woff2"),
-    url("//at.alicdn.com/wf/webfont/BXqct76kzCAK/HS31uXOczqwT.woff")
-      format("woff");
-  font-display: swap;
-}
-
-/* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
-@font-face {
-  font-family: "思源黑体 Normal";
-  font-weight: 350;
-  src: url("//at.alicdn.com/wf/webfont/BXqct76kzCAK/lBgCyzSMz7CG.woff2")
-      format("woff2"),
-    url("//at.alicdn.com/wf/webfont/BXqct76kzCAK/XMWuUCMmugpH.woff")
-      format("woff");
-  font-display: swap;
-}
-
-/* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
-@font-face {
-  font-family: "思源黑体 Regular";
-  font-weight: 400;
-  src: url("//at.alicdn.com/wf/webfont/BXqct76kzCAK/3M6SRFTz9lkO.woff2")
-      format("woff2"),
-    url("//at.alicdn.com/wf/webfont/BXqct76kzCAK/ZiLfVwOzTRRB.woff")
-      format("woff");
-  font-display: swap;
-}
-
-/* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
-@font-face {
-  font-family: "思源黑体 Medium";
-  font-weight: 500;
-  src: url("//at.alicdn.com/wf/webfont/BXqct76kzCAK/rpH6MG5UdLI9.woff2")
-      format("woff2"),
-    url("//at.alicdn.com/wf/webfont/BXqct76kzCAK/lDUXpozsRbEA.woff")
-      format("woff");
-  font-display: swap;
-}
-
-/* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
-@font-face {
-  font-family: "思源黑体 Bold";
-  font-weight: 700;
-  src: url("//at.alicdn.com/wf/webfont/BXqct76kzCAK/fN5W0WASg9Sa.woff2")
-      format("woff2"),
-    url("//at.alicdn.com/wf/webfont/BXqct76kzCAK/2l6qfngLB5kI.woff")
-      format("woff");
-  font-display: swap;
-}
-
-/* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
-@font-face {
-  font-family: "思源黑体 Heavy";
-  font-weight: 900;
-  src: url("//at.alicdn.com/wf/webfont/BXqct76kzCAK/A12sIuuixPB6.woff2")
-      format("woff2"),
-    url("//at.alicdn.com/wf/webfont/BXqct76kzCAK/GhMHvQmwfTjI.woff")
-      format("woff");
-  font-display: swap;
 }
