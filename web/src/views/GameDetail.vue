@@ -1,9 +1,6 @@
 <template>
     <div ref="scrollWrapperRef" bg-main-bg h-screen color-white overflow-hidden tracking-widest>
         <div size-full overflow-scroll scroll-smooth>
-            <div v-if="!show">
-                1111
-            </div>
             <!-- Phone Mode -->
             <div v-if="!lgMode" p-4 flex flex-col box-border>
                 <!-- logo -->
@@ -65,8 +62,9 @@
                     <!-- menu part -->
                     <div flex gap-2 flex-shrink-0 w-full>
                         <template v-for="(tag, index) in currentTheme.tags">
-                            <div :class="{ 'active-tag': currentThemeTagIndex == index }" duration-200 p-3
-                                @click="changCurrentThemeTagIndex(index)" rounded-t-lg>{{ tag.cnName }}
+                            <div :class="{ 'active-tag-menu': currentThemeTagIndex == index }" duration-100 p-3
+                                @click="changCurrentThemeTagIndex(index)" rounded-t-lg text-nowrap>
+                                {{ tag.cnName }}
                             </div>
                         </template>
                     </div>
@@ -127,7 +125,6 @@ const handleThemeChange = (themeIndex: number) => {
 const router = useRouter()
 const name = router.currentRoute.value.query.name
 
-const show = ref(name == 'Dayz')
 const game = gameInfoJson.filter(game => game.gameName == name)?.[0]
 const currentThemeIndex = ref(0)
 const currentTheme = computed(() => game.theme[currentThemeIndex.value])
@@ -209,5 +206,10 @@ div::-webkit-scrollbar {
 
 .active-tag {
     background-color: #1a1a1ace;
+}
+
+.active-tag-menu {
+    background-color: #1a1a1ace;
+    font-weight: 700;
 }
 </style>

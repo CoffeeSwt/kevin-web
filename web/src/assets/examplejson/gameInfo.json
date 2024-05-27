@@ -8,6 +8,11 @@
         "subName": "主题服务器",
         "EngName": "Winter Livonia",
         "imgs": [
+          "https://ik.imagekit.io/coffeeswt/public/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/10.jpg?updatedAt=1716803506878",
+          "https://ik.imagekit.io/coffeeswt/public/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/9.png?updatedAt=1716803411756",
+          "https://ik.imagekit.io/coffeeswt/public/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/8.jpg?updatedAt=1716803410692",
+          "https://ik.imagekit.io/coffeeswt/public/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/7.jpg?updatedAt=1716803410623",
+          "https://ik.imagekit.io/coffeeswt/public/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/6.jpg?updatedAt=1716803410217",
           "https://ik.imagekit.io/coffeeswt/public/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/1.png?updatedAt=1716801242722",
           "https://ik.imagekit.io/coffeeswt/public/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/2.png?updatedAt=1716801243934",
           "https://ik.imagekit.io/coffeeswt/public/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/3.png?updatedAt=1716801242457",
@@ -20,7 +25,7 @@
           {
             "name": "intro",
             "cnName": "简介",
-            "content": "冬季利沃利亚\n仿官玩法"
+            "content": "\t进入利沃尼亚。利沃尼亚充斥着大量野生动物、废墟以及隐秘地点，具有 163 平方公里的原野、森林和神秘景观，将为新来者以及 DayZ 老手们提供别具一格的新体验。\n\r\n\t探索这片土地。大量令人心往神驰的未知地点，现在正静静等待着勇敢的冒险探索者们。探索阴森的沼泽、荒废的狩猎小屋、锯木厂和滥伐后的林地，以及存有剩余炸药的大型采石场。\n\r\n\t循迹追熊。利沃尼亚的食物供给非常匮乏。如果想要生存下来，你必须学会如何在冷漠无情的荒野中狩猎、钓鱼和觅食。幸运的是，比起先前的末日浩劫，现在这片大陆充满了生机活力。\n\r\n\t发现秘密。探索南部区域，找到通往神秘地下建筑群的隐秘入口。当你在寻找通往那里的道路时，确保与好友结伴而行，相互照应。别忘记带上充足的补给物资，特别是一个手电筒。否则，当你进入那里后，很可能迷失在漆黑的迷宫式廊道中。\n\r"
           },
           {
             "name": "how-to-play",
