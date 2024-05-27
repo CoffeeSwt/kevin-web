@@ -152,6 +152,7 @@ const scrollWrapperRef = ref<null | HTMLDivElement>(null)
 let resizeObserver;
 const innerWidth = ref(0);
 const lgMode = computed(() => innerWidth.value >= 1024)
+console.log(lgMode)
 
 const init = () => {
     resizeObserver = new ResizeObserver(entries => {
