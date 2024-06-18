@@ -1,18 +1,13 @@
 [
   {
     "gameName": "Dayz",
-    "logo": "/gameLogo/Dayz.png",
+    "logo": "https://coffeesw.top/kevin/gameLogo/Dayz.png",
     "theme": [
       {
         "name": "冬季利沃利亚",
         "subName": "主题服务器",
         "EngName": "Winter Livonia",
         "imgs": [
-          "https://coffeesw.top/kevin/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/10.jpg",
-          "https://coffeesw.top/kevin/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/9.png",
-          "https://coffeesw.top/kevin/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/8.jpg",
-          "https://coffeesw.top/kevin/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/7.jpg",
-          "https://coffeesw.top/kevin/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/6.jpg",
           "https://coffeesw.top/kevin/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/1.png",
           "https://coffeesw.top/kevin/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/2.png",
           "https://coffeesw.top/kevin/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/3.png",

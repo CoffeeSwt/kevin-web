@@ -185,7 +185,7 @@
 
       <section ref="section-contact" w-full min-h-screen>
         <div h-18></div>
-        <div mb-4 text-3xl font-bold>联系我们</div>
+        <div mb-4 text-3xl font-bold>联系凯文</div>
         <div h-8></div>
         <div w-full>
           <!-- 广告与植入 -->
@@ -290,7 +290,7 @@
 
       <section ref="section-contact-pc" w-full min-h-screen-50 mt-8>
         <div h-10></div>
-        <div mb-12 text-3xl font-heavy>联系我们</div>
+        <div mb-12 text-3xl font-heavy>联系凯文</div>
         <div w-full>
           <!-- 广告与植入 -->
           <div w-full>
