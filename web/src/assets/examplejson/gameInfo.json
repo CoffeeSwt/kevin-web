@@ -1,18 +1,18 @@
 [
   {
     "gameName": "Dayz",
-    "logo": "https://coffeesw.top/kevin/gameLogo/Dayz.png",
+    "logo": "https://cdn.coffeesw.top/kevin/gameLogo/Dayz.png",
     "theme": [
       {
         "name": "冬季利沃利亚",
         "subName": "主题服务器",
         "EngName": "Winter Livonia",
         "imgs": [
-          "https://coffeesw.top/kevin/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/1.png",
-          "https://coffeesw.top/kevin/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/2.png",
-          "https://coffeesw.top/kevin/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/3.png",
-          "https://coffeesw.top/kevin/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/4.png",
-          "https://coffeesw.top/kevin/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/5.png"
+          "https://cdn.coffeesw.top/kevin/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/1.png",
+          "https://cdn.coffeesw.top/kevin/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/2.png",
+          "https://cdn.coffeesw.top/kevin/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/3.png",
+          "https://cdn.coffeesw.top/kevin/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/4.png",
+          "https://cdn.coffeesw.top/kevin/%E5%88%A9%E6%B2%83%E5%B0%BC%E4%BA%9A/5.png"
         ],
         "serverName": "Winter Livonia | PVP",
         "serverAddress": "45.125.47.243:2304",
@@ -33,22 +33,22 @@
             "content": [
               {
                 "name": "xg",
-                "avator": "https://coffeesw.top/kevin/avator/xg.png",
+                "avator": "https://cdn.coffeesw.top/kevin/avator/xg.png",
                 "info": "服主"
               },
               {
                 "name": "Coffee",
-                "avator": "https://coffeesw.top/kevin/avator/Coffee.png",
+                "avator": "https://cdn.coffeesw.top/kevin/avator/Coffee.png",
                 "info": "服务器开发"
               },
               {
                 "name": "SiXia",
-                "avator": "https://coffeesw.top/kevin/avator/sixia.jpg",
+                "avator": "https://cdn.coffeesw.top/kevin/avator/sixia.jpg",
                 "info": "服务器测试"
               },
               {
                 "name": "Kevin",
-                "avator": "https://coffeesw.top/kevin/avator/kevin.jpg",
+                "avator": "https://cdn.coffeesw.top/kevin/avator/kevin.jpg",
                 "info": "服务器策划"
               }
             ]
